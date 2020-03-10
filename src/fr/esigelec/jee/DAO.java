@@ -1,41 +1,53 @@
 package fr.esigelec.jee;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
-/**
- * Servlet implementation class DAO
- */
-@WebServlet("/DAO")
-public class DAO extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DAO() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+public class DAO {
+	
+		private String url ="jdbc:mysql://localhost/stations?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		private String username = "countries";
+		private String password = "javaee2020";
+
+		Connection conn = null;
+	
+ public DAO() {
+	 
+	 
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+ 		public void connect() {
+ 			try {
+ 				conn = DriverManager.getConnection(url,username, password);
+ 			} catch (SQLException ex) {
+ 				System.out.println("Connection failed");
+ 				ex.printStackTrace();
+		 		}
+ 				System.out.println("Connection established");;
+			}
+		public void close() {
+			 if (conn != null) {
+			 try {
+			 conn.close();
+			 } catch (SQLException ex) {
+			 ex.printStackTrace();
+			 }
+			 }
+			}
+	
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		DAO A= new DAO();
+		A.connect();
+		
 	}
-
+		
 }
