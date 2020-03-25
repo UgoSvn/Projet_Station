@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Accueil</title>
+	<title>Liste des stations</title>
 	
 	 <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 	
 	
 	<!-- Style sheet CSS -->
-	<link rel="stylesheet" type="text/css" href="css/accueil.css" />
+	<link rel="stylesheet" type="text/css" href="css/list.css" />
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 	<div class="container-fluid">
 		
 		<div class="row">
-			<div class="col-12 col-md-12 navbare">
+			<div class="col-md-12 navbare">
 				<!-- NavBar -->
 				<div class="my-navebar">
 					<nav class="my-navbar navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -47,8 +47,8 @@
 					      			<li class="nav-item">
 					        			<a class="nav-link" href="ApplyMoreFilter.jsp">Apply more filters</a>
 					      			</li>
-					      			<li class="nav-item active">
-					        			<a class="nav-link" href="#">Home</a>
+					      			<li class="nav-item">
+					        			<a class="nav-link" href="Accueil.jsp">Home</a>
 					      			</li>
 					    		</ul>
 					  		</div>
@@ -60,88 +60,79 @@
 		
 		<div class="row">
 			<div class="col-md-12 titre">
-				<br /><br /><br /><br /><br /><br /><h1>FIND THE NEAREST / GAZ STATION</h1>
+				<br /><br /><br /><br /><br /><br /><h1>FIND A GAZ STATION</h1>
 			</div>
 		</div>
 	
 		<div class="row">
-			<div class="col-12 col-md-1 nothing">
-
-	        </div>
-			<!-- Colonne 1 -->
-			<div class="col-12 col-md-4 description d-flex align-items-center">
-                <h2><br>Don't waste your time anymore and try our solution to find the nearest most efficient gas station in 
-				a single click. Fast and 100% reliable, you can drive safely alll around the country without thinking of where to 
-				find an opened and well equipped gas station. Try it now and you'll never regret.</h2>
-            </div>
-			<div class="col-12 col-md-1 nothing">
-
-	        </div>
-	        <!-- Colonne 2 -->
-	        <div class="col-12 col-md-6 try">
-				<h3><br><br>TRY IT OUT NOW</h3>
-				<center><img src="css/images/arrow.png" alt="Fleche" widht="50"/></center>
-	        </div>
-	        
+			<div class="col-md-12 soustitre">
+				<p>Liste des stations les plus proches de vous</p><br />
+			</div>
 		</div>
-	
-	
 		
 		<div class="row">
-			<!-- Colonne 1 -->
-			<div class="col-12 col-md-6 nothing d-flex align-items-center"></div>
-			
-			<!-- Colonne 2 -->
-			<div class="col-12 col-md-6 choix d-flex align-items-center">
-				<div class="row">
-					<!-- Colonne 2.1 -->
-					<div class="col-md-3 text1 d-flex align-items-center">
-						<p>Distance (km)</p>
-					</div>
-					<!-- Colonne 2.2 -->
-					<div class="col-md-3 choix1 d-flex align-items-center">
-						<center><select name="select">
-						  <option>5</option>
-						  <option>1	0</option>
-						  <option>25</option>
-						  <option>50</option>
-						  <option>100</option>
-						  <option>250</option>
-						  <option>500</option>
-						</select></center>
-					</div>
-					<!-- Colonne 2.3 -->
-					<div class="col-md-3 text2 d-flex align-items-center">
-						<p>Num. Results</p>
-					</div>
-					<!-- Colonne 2.4 -->
-					<div class="col-md-3 choix2 d-flex align-items-center">
-						<center><select name="select">
-						  <option>10</option>
-						  <option>25</option>
-						  <option>50</option>
-						  <option>100</option>
-						</select></center>
-					</div>
-				</div>
+			<div class="col-md-1 nothing">
+			</div>
+			<div class="col-md-2 station1">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-2 station2">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-2 station3">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-2 station4">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-2 station5">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-1 nothing">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-1 nothing">
+			</div>
+			<div class="col-md-2 station6">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-2 station7">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-2 station8">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-2 station9">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-2 station10">
+				<br /><br /><br /><br /><br /><br />
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+			</div>
+			<div class="col-md-1 nothing">
 			</div>
 		</div>
 	
-	
-		<div class="row">
-			<!-- Colonne 1 -->
-			<div class="col-12 col-md-6 nothing d-flex align-items-center"></div>
-
-	        <!-- Colonne 2 -->
-	        <div class="col-12 col-md-6 buttonfind">
-	        <br />
-				<center><a href="List.jsp"><button type="button" class="btn btn-outline-warning">FIND</button></a></center>
-	        </div>
-		</div>
-		
 		<div class="row">
 			<div class="col-md-12 nothing">
-				<br /><br /><br /><br /><br /><br />
+				<br />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 nothing">
+				<br /><br /><br />
 			</div>
 		</div>
 		

@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+/* Gestion des parametres du body */
+		body {
+			background-image:url("images/Fond.JPG");
+			background-color:black;
+			height:100%;
+			background-position:left top;
+			background-repeat:no-repeat;
+			background-size: cover;
+			}
+		
+		/* Gestion des parametres de la Nav-bar */
+		.navbare .my-navebar .my-navbar {
+			background: rgba(0,0,0,0) !important;
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		
+		.titre h1{
+			color: rgb(255, 187, 51);
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-weight: bold;
+  			font-size: 100px;
+		}
+		
+		.soustitre p{
+			color: white;
+			text-align: center;
+			font-family: 'Teko', sans-serif;
+			font-weight: bold;
+			text-decoration: underline;
+  			font-size: 30px;
+		}
+		
+		.station1{
+			background: rgba(0,0,0,0.5) !important;
+		}
+		.station2{
+			background: rgba(0,128,0,0.5) !important;
+		}
+		.station3{
+			background: rgba(255,255,0,0.5) !important;
+		}
+		.station4{
+			background: rgba(110,51,0,0.5) !important;
+		}
+		.station5{
+			background: rgba(15,5,107,0.5) !important;
+		}
+		.station6{
+			background: rgba(255,255,0,0.5) !important;
+		}
+		.station7{
+			background: rgba(110,51,0,0.5) !important;
+		}
+		.station8{
+			background: rgba(15,5,107,0.5) !important;
+		}
+		.station9{
+			background: rgba(0,0,0,0.5) !important;
+		}
+		.station10{
+			background: rgba(0,128,0,0.5) !important;
+		}
+		
+		.station1 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station2 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station3 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station4 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station5 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station6 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station7 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station8 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station9 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		.station10 button{
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		
+		/* Gestion des parametres du Footer */
+		footer{
+		    background-color: rgba(0,0,0,.5);
+		    color: #999;
+		    padding-top: 0.5rem;
+		    padding-bottom: 0.5rem;
+		    font-family: 'Open Sans Condensed', sans-serif;
+		}
+		footer a{
+		    color: #999;
+		    font-size: 2rem;
+		    transition: all .2s ease-in-out;
+		}
+		

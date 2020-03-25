@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/* Gestion des parametres du body */
+		body {
+			background-image:url("images/Fond.JPG");
+			background-color:black;
+			height:100%;
+			background-position:left top;
+			background-repeat:no-repeat;
+			background-size: cover;
+			}
+		
+		/* Gestion des parametres de la Nav-bar */
+		.navbare .my-navebar .my-navbar {
+			background: rgba(0,0,0,0) !important;
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		
+		.titre h1{
+			color: rgb(255, 187, 51);
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-weight: bold;
+  			font-size: 100px;
+		}
+		.description h2{
+			color: white;
+  			text-align: center;
+			text-align: justify;
+			text-align: justify-all;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 25px;
+		}
+		.try h3{
+			color: white;
+			text-align: center;
+			font-family: 'Teko', sans-serif;
+			font-weight: bold;
+			font-style: italic;
+  			font-size: 50px;
+		}
+		.try img{
+			width: 50px;
+			height: 50px;
+		}
+		.choix .text1 p{
+			font-family: 'Teko', sans-serif;
+			color: white;
+			font-size: 25px;
+		}
+		.choix .text2 p{
+			font-family: 'Teko', sans-serif;
+			color: white;
+			font-size: 25px;
+		}
+		.choix .choix1 select{
+			font-family: 'Teko', sans-serif;
+			background-color:rgb(255, 187, 51);
+			color: black;
+		}
+		.choix .choix2 select{
+			font-family: 'Teko', sans-serif;
+			background-color:rgb(255, 187, 51);
+			color: black;
+		}
+		.buttonfind button{
+			font-family: 'Teko', sans-serif;
+			font-size: 25px;
+		}
+		/* Gestion des parametres du Footer */
+		footer{
+		    background-color: rgba(0,0,0,.5);
+		    color: #999;
+		    padding-top: 0.5rem;
+		    padding-bottom: 0.5rem;
+		    font-family: 'Open Sans Condensed', sans-serif;
+		}
+		footer a{
+		    color: #999;
+		    font-size: 2rem;
+		    transition: all .2s ease-in-out;
+		}
+		
