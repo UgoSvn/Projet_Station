@@ -208,8 +208,8 @@ public class DomParser {
 //		System.out.println(A.stringToDoubleLatitude("4620114"));
 //		System.out.println(A.stringToDoubleLongitude("462011145"));
 		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
-		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256, 1));
-		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 1));
+		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256, 5));
+		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 8));
 
 		System.out.println("1");
 		
