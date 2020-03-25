@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"
     session="true"
     import="fr.esigelec.jee.*"
-%>
+  %>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -84,9 +84,9 @@
 			<%
 			double longitude = 49.5517696;
 			double latitude = 0.9568256;
-			int n = 1;
+			int n =1;
 			%>
-			<h1> Situé à <%=a.stationKmLaNEmePlusProche(longitude, latitude, n) %></h1>
+			<h1> <%= a.stationKmLaNEmePlusProche(longitude, latitude, n)%></h1>
 				<br /><br /><br /><br /><br /><br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
 			</div>
