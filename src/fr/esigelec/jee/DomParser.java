@@ -141,8 +141,6 @@ public class DomParser {
 	
 	public String stationKmLaNEmePlusProche(double latitude1, double longitude1, int n){
 		ArrayList<Double> ListeDouble = new ArrayList<Double>();
-		ArrayList<Double> ListeDouble2 = new ArrayList<Double>();
-		ArrayList<String> ListId = new ArrayList<String>();
 		DistanceCalculator A = new DistanceCalculator();
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
@@ -155,7 +153,6 @@ public class DomParser {
 					Element pdv = (Element) p;
 					String latitude = pdv.getAttribute("latitude");
 					String longitude = pdv.getAttribute("longitude");
-					String id = pdv.getAttribute("id");
 					if(latitude.length()==7&&longitude.length()==6) {
 					double latitude2 = stringToDoubleLatitude(latitude);
 					double longitude2 = stringToDoubleLongitude(longitude);
@@ -211,11 +208,9 @@ public class DomParser {
 //		System.out.println(A.stringToDoubleLatitude("4620114"));
 //		System.out.println(A.stringToDoubleLongitude("462011145"));
 		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
-<<<<<<< Updated upstream
-		System.out.println(A.stationLaNï¿½mePlusProche(49.5517696, 0.9568256, 5));
-=======
-		System.out.println(A.stationKmLaNèmePlusProche(49.5517696, 0.9568256, 8));
->>>>>>> Stashed changes
+		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256, 5));
+		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 8));
+
 		System.out.println("1");
 		
 		

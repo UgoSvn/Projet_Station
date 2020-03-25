@@ -80,7 +80,7 @@
 			<div class="col-md-1 nothing">
 			</div>
 			<div class="col-md-2 station1">
-			<%DomParser a = new DomParser() %>
+			<%DomParser a = new DomParser();%>
 			<%
 			double longitude = 49.5517696;
 			double latitude = 0.9568256;
