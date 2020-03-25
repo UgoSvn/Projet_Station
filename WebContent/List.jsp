@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    session="true"
+    import="fr.esigelec.jee.*"
+%>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,7 +31,7 @@
 </head>
 
 <body>
-
+	
 	<div class="container-fluid">
 		
 		<div class="row">
@@ -74,6 +80,13 @@
 			<div class="col-md-1 nothing">
 			</div>
 			<div class="col-md-2 station1">
+			<%DomParser a = new DomParser() %>
+			<%
+			double longitude = 49.5517696;
+			double latitude = 0.9568256;
+			int n = 1;
+			%>
+			<h1> Situé à <%=a.stationKmLaNEmePlusProche(longitude, latitude, n) %></h1>
 				<br /><br /><br /><br /><br /><br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
 			</div>
