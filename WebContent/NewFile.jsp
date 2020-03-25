@@ -25,7 +25,7 @@ function getLocation() {
 
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
+  "<br>Longitude: " + position.coords.longitude + <%="slip"%>;
 }
 </script>
 <script>
@@ -34,6 +34,7 @@ function showPosition(position) {
 	  "<br>Longitude: " + position.coords.longitude;
 	}</script>
 
+	
 
 </body>
 </html>

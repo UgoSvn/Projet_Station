@@ -211,7 +211,11 @@ public class DomParser {
 //		System.out.println(A.stringToDoubleLatitude("4620114"));
 //		System.out.println(A.stringToDoubleLongitude("462011145"));
 		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
+<<<<<<< Updated upstream
 		System.out.println(A.stationLaNï¿½mePlusProche(49.5517696, 0.9568256, 5));
+=======
+		System.out.println(A.stationKmLaNèmePlusProche(49.5517696, 0.9568256, 8));
+>>>>>>> Stashed changes
 		System.out.println("1");
 		
 		
