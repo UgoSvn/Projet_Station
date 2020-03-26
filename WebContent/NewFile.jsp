@@ -9,7 +9,7 @@
 
 	<form action="List.jsp" name="form">
 
-		<button onclick="getLocation()">Avoir les coordonnées GPS</button>
+		<button name="test" onclick="getLocation(); return false;">Avoir les coordonnées GPS</button>
 
 		<input type="submit" id="submit" name="submit" /><input type="text"
 			name="lat" id="lat" /> <input type="text" name="long" id="long" />
