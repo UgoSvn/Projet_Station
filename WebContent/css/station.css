@@ -34,8 +34,21 @@
   			font-size: 30px;
 		}
 		
-		.station{
+		.stationBg{
 			background: rgba(0,128,0,0.5) !important;
+		}
+		
+		element.style {
+   			text-align: center;
+    		color: white;
+		}
+		.station{
+			color: white !important;
+			font-color: white !important;
+  			text-align: center !important;
+  			font-family: 'Teko', sans-serif!important;
+  			font-size: 30px!important;
+  			text-decoration: underline!important;
 		}
 		
 		.buttonretour a button{

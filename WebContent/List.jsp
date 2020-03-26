@@ -3,6 +3,7 @@
     session="true"
     import="fr.esigelec.jee.*"
 %>
+<%@ page import="javax.servlet.http.HttpServletRequest" %>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -80,16 +81,24 @@
 			<%DomParser a = new DomParser();%>
 
 			<%
-			double longitude = 49.5517696;
-			double latitude = 0.9568256;
-			int n;
+			String paramlat = request.getParameter("lat");
+			String paramlong = request.getParameter("long");
+			double latitude = 49.5517696;
+			double longitude = 0.9568256;
+			//latitude = Double.parseDouble(paramlat);
+			//longitude = Double.parseDouble(paramlong);
+			System.out.println(latitude);
+			System.out.println(longitude);
+			%>
+			
+			<%int n;
 			%>
 			<div class="col-md-1 nothing">
 			</div>
 			<div class="col-md-2 station1">
 				<% n=1; %>
 				<br /><br />
-				<h1>Station 1 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 1 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="1">Voir</button></a></center>
 				
@@ -97,28 +106,28 @@
 			<div class="col-md-2 station2">
 				<% n=2; %>
 				<br /><br />
-				<h1>Station 2 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 2 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="2">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station3">
 				<% n=3; %>
 				<br /><br />
-				<h1>Station 3 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 3 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning"id="3">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station4">
 				<% n=4; %>
 				<br /><br />
-				<h1>Station 4 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 4 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="4">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station5">
 				<% n=5; %>
 				<br /><br />
-				<h1>Station 5 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 5 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="5">Voir</button></a></center>
 			</div>
@@ -132,35 +141,35 @@
 			<div class="col-md-2 station6">
 				<% n=6; %>
 				<br /><br />
-				<h1>Station 6 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 6 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="6">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station7">
 				<% n=7; %>
 				<br /><br />
-				<h1>Station 7 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 7 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="7">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station8">
 				<% n=8; %>
 				<br /><br />
-				<h1>Station 8 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 8 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="8">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station9">
 				<% n=9; %>
 				<br /><br />
-				<h1>Station 9 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 9 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="9">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station10">
 				<% n=10; %>
 				<br /><br />
-				<h1>Station 10 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
+				<h1>Station 10 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				<br />
 				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="10">Voir</button></a></center>
 			</div>

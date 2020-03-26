@@ -74,37 +74,40 @@
 		<div class="row">
 			<div class="col-md-3 nothing">
 			</div>
-			<div class="col-md-6 station">
+			<div class="col-md-6 stationBg">
 				<%DomParser a = new DomParser();%>
 				<%
 				double latitude = 49.5517696;
 				double longitude = 0.9568256;
+				String longitude2 = request.getParameter("geoLocation");
+				System.out.println(longitude2);
 				int n;
 				n=3;
 				String id;
 				id = a.stationLaNEmePlusProche(latitude, longitude, n);
 				%>
+				<h1 class="station">Station 1 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
 				
-				<h1>Station 1 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
-
-				<p>Adresse : <%=a.stationCpTypeAdrVil(id).get(2)%></p>
+				<p class="station">Adresse : <%=a.stationCpTypeAdrVil(id).get(3)%>, <%=a.stationCpTypeAdrVil(id).get(2)%></p>
 				
-				<p> Horaire : <%
-					for(int i = 0; i < a.stationHorairesDuJour(id).size(); i++){
-						a.stationHorairesDuJour(id).get(i);
-					}
+				<p class="station"> Horaire : <%
+					for(int i = 0; i < a.stationHorairesDuJour(id).size(); i++){%>
+						<%=a.stationHorairesDuJour(id).get(i)%>
+				<%	}
 				%></p>
-				<p> Services : <%
-					for(int i = 0; i < a.stationServices(id).size(); i++){
-						a.stationServices(id).get(i);
-					}
+				<p class="station"> Services : <br /><%
+					for(int i = 0; i < a.stationServices(id).size(); i++){%>
+						<%=a.stationServices(id).get(i)%><br />
+				<%	}
 				%></p>
-				<p> Prix : <%
-					for(int i = 0; i < a.stationPrix(id).size(); i++){
-						a.stationPrix(id).get(i);
-					}
+				<p class="station"> Prix : <br /><%
+					for(int i = 0; i < a.stationPrix(id).size(); i++){%>
+						<%=a.stationPrix(id).get(i)%><br />
+				<%	}
 				%></p>
 					
+				<p class="station">Type : <%=a.stationCpTypeAdrVil(id).get(1)%></p>
+				
 				<br />
 			</div>
 			<div class="col-md-3 nothing">

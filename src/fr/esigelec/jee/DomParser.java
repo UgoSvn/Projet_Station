@@ -199,7 +199,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -255,7 +255,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -306,7 +306,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -358,7 +358,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -423,7 +423,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -506,7 +506,11 @@ public class DomParser {
 //		System.out.println(A.stationCpTypeAdrVil("1000001"));
 //		System.out.println(A.stationServices("1000001"));
 //		System.out.println(A.stationPrix("1000001"));
-		System.out.println(A.stationHorairesDuJour("1000004"));
+//		String id = "1000004";
+//		System.out.println(A.stationHorairesDuJour("1000004"));
+//		for(int i=0; i<A.stationServices(id).size(); i++) {
+//			System.out.println(A.stationServices(id).get(i));
+//		}
 		
 		
 		
