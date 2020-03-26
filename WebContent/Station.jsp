@@ -79,8 +79,6 @@
 				<%
 				double latitude = 49.5517696;
 				double longitude = 0.9568256;
-				String longitude2 = request.getParameter("geoLocation");
-				System.out.println(longitude2);
 				int n;
 				n=3;
 				String id;
