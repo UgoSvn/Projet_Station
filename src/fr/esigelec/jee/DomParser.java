@@ -347,40 +347,36 @@ public class DomParser {
 								Element horaires = (Element) p3;
 								String automate = horaires.getAttribute("automate-24-24");
 								if(automate.equals("1")) {
-									NodeList jourList = doc.getElementsByTagName("jour");
+									NodeList jourList = horaires.getElementsByTagName("jour");
 									for(int j=0;j<jourList.getLength();j++) {
 										Node p4 = jourList.item(j);
 										if(p4.getNodeType()==Node.ELEMENT_NODE) {
-											System.out.println("a");
 											Element jour = (Element) p4;
 											String id3 = jour.getAttribute("id");
 											if(id3.equals(String.valueOf(Calendar.WEEK_OF_YEAR +1))) {
-												System.out.println("c");
 												NodeList horaireList = pdv.getElementsByTagName("horaire");
 												Node p5 = horaireList.item(0);
 												if(p5.getNodeType()==Node.ELEMENT_NODE) {
-													System.out.println("b");
 													Element horaire = (Element) p5;
 													String ouverture = horaire.getAttribute("ouverture");
 													String fermeture = horaire.getAttribute("fermeture");
 													ListeHoraires.add(ouverture);
 													ListeHoraires.add(fermeture);
 													
+												}
 											}
-								}
 										}
+									}
+								}	
 								else {
 									ListeHoraires.add("Caisses automatiques uniquement");
 								}
 							}
 						}	
 
-							}
-						}
-					
-					
 					}
-					}				
+				}
+							
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -394,6 +390,58 @@ public class DomParser {
 		return ListeHoraires;
 		
 	}
+	
+/*	public ArrayList<String> stationsFiltres(String distance; String ){
+		ArrayList<String> ListePrix = new ArrayList<String>();	
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		try {
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			NodeList pdvList = doc.getElementsByTagName("pdv");
+			for(int i=0;i<pdvList.getLength();i++) {
+				Node p1 = pdvList.item(i);
+				if(p1.getNodeType()==Node.ELEMENT_NODE) {
+					Element pdv = (Element) p1;
+					String id2 = pdv.getAttribute("id");
+					if(id2.equals(id)) {
+						NodeList prixList = pdv.getElementsByTagName("prix");
+						System.out.println(prixList.getLength());
+						for(int k=0;k<prixList.getLength();k++) {
+							Node p3 = prixList.item(k);
+							if(p3.getNodeType()==Node.ELEMENT_NODE) {
+								Element prix = (Element) p3;
+								String nom = prix.getAttribute("nom");
+								String valeur = prix.getAttribute("valeur");
+								if(ListePrix.contains(nom)) {
+									int index = ListePrix.indexOf(nom);
+									ListePrix.remove(index + 1);
+									ListePrix.add(index + 1, valeur);
+								}
+								else {
+									ListePrix.add(nom);
+									ListePrix.add(valeur);
+								}
+									}	
+
+							}
+						}
+					}
+					
+		
+			}	
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) { 
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ListePrix;
+		
+	}*/
 
 	public static void main(String[] args) {
 /*		// TODO Auto-generated method stub
@@ -431,8 +479,7 @@ public class DomParser {
 //		System.out.println(A.stationCpAdrVil("1000001"));
 //		System.out.println(A.stationServices("1000001"));
 //		System.out.println(A.stationPrix("1000001"));
-		System.out.println(A.stationHorairesDuJour("1000004"));
-		System.out.println(Calendar.WEEK_OF_YEAR);
+		System.out.println(A.stationHorairesDuJour("1000001"));
 		
 		
 		
