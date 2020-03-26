@@ -55,7 +55,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
@@ -101,7 +101,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
@@ -145,7 +145,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
@@ -156,7 +156,7 @@ public class DomParser {
 					if(latitude.length()==7&&longitude.length()==6) {
 					double latitude2 = stringToDoubleLatitude(latitude);
 					double longitude2 = stringToDoubleLongitude(longitude);
-					double d = A.distance(latitude1, longitude1, latitude2, longitude2);
+					double d = (double) Math.round(A.distance(latitude1, longitude1, latitude2, longitude2)*100)/100;
 					ListeDouble.add(d);
 					
 					}

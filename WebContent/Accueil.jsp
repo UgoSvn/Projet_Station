@@ -89,14 +89,18 @@
 		
 		<div class="row">
 			<!-- Colonne 1 -->
-			<div class="col-12 col-md-6 nothing d-flex align-items-center"></div>
+			<div class="col-12 col-md-6 test d-flex align-items-center">
+				<h2 style="
+				padding-left: 50px;
+				padding-right: 50px;
+				">...</h2>
+			</div>
 			
 			<!-- Colonne 2 -->
 			<div class="col-12 col-md-6 choix d-flex align-items-center">
-				<div class="row">
 					<!-- Colonne 2.1 -->
 					<div class="col-md-3 text1 d-flex align-items-center">
-						<p>Distance (km)</p>
+						<p class="ml-auto">Distance (km)</p>
 					</div>
 					<!-- Colonne 2.2 -->
 					<div class="col-md-3 choix1 d-flex align-items-center">
@@ -112,7 +116,7 @@
 					</div>
 					<!-- Colonne 2.3 -->
 					<div class="col-md-3 text2 d-flex align-items-center">
-						<p>Num. Results</p>
+						<p class="ml-auto">Num. Results</p>
 					</div>
 					<!-- Colonne 2.4 -->
 					<div class="col-md-3 choix2 d-flex align-items-center">
@@ -124,7 +128,6 @@
 						</select></center>
 					</div>
 				</div>
-			</div>
 		</div>
 	
 	

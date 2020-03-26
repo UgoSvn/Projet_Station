@@ -65,6 +65,67 @@
 			background: rgba(0,128,0,0.5) !important;
 		}
 		
+		.station1 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station2 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station3 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station4 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station5 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station6 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station7 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station8 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station9 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		.station10 h1{
+			color: white;
+  			text-align: center;
+  			font-family: 'Teko', sans-serif;
+  			font-size: 40px;
+		}
+		
 		.station1 button{
 			font-family: 'Teko', sans-serif;
 			font-size: 20px;
