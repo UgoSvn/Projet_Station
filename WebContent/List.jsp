@@ -91,35 +91,36 @@
 				<br /><br />
 				<h1>Station 1 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="1">Voir</button></a></center>
+				
 			</div>
 			<div class="col-md-2 station2">
 				<% n=2; %>
 				<br /><br />
 				<h1>Station 2 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="2">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station3">
 				<% n=3; %>
 				<br /><br />
 				<h1>Station 3 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning"id="3">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station4">
 				<% n=4; %>
 				<br /><br />
 				<h1>Station 4 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="4">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station5">
 				<% n=5; %>
 				<br /><br />
 				<h1>Station 5 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="5">Voir</button></a></center>
 			</div>
 			<div class="col-md-1 nothing">
 			</div>
@@ -133,35 +134,35 @@
 				<br /><br />
 				<h1>Station 6 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="6">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station7">
 				<% n=7; %>
 				<br /><br />
 				<h1>Station 7 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="7">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station8">
 				<% n=8; %>
 				<br /><br />
 				<h1>Station 8 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="8">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station9">
 				<% n=9; %>
 				<br /><br />
 				<h1>Station 9 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="9">Voir</button></a></center>
 			</div>
 			<div class="col-md-2 station10">
 				<% n=10; %>
 				<br /><br />
 				<h1>Station 10 situé à <%=a.stationKmLaNEmePlusProche(longitude,latitude,n) %> km</h1>
 				<br />
-				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning">Voir</button></a></center>
+				<center><a href="Station.jsp"><button type="button" class="btn btn-outline-warning" id="10">Voir</button></a></center>
 			</div>
 			<div class="col-md-1 nothing">
 			</div>

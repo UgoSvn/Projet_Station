@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    session="true"
+    import="fr.esigelec.jee.*"
+%>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -69,7 +75,37 @@
 			<div class="col-md-3 nothing">
 			</div>
 			<div class="col-md-6 station">
-				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<%DomParser a = new DomParser();%>
+				<%
+				double latitude = 49.5517696;
+				double longitude = 0.9568256;
+				int n;
+				n=3;
+				String id;
+				id = a.stationLaNEmePlusProche(latitude, longitude, n);
+				%>
+				
+				<h1>Station 1 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
+
+				<p>Adresse : <%=a.stationCpTypeAdrVil(id).get(2)%></p>
+				
+				<p> Horaire : <%
+					for(int i = 0; i < a.stationHorairesDuJour(id).size(); i++){
+						a.stationHorairesDuJour(id).get(i);
+					}
+				%></p>
+				<p> Services : <%
+					for(int i = 0; i < a.stationServices(id).size(); i++){
+						a.stationServices(id).get(i);
+					}
+				%></p>
+				<p> Prix : <%
+					for(int i = 0; i < a.stationPrix(id).size(); i++){
+						a.stationPrix(id).get(i);
+					}
+				%></p>
+					
+				<br />
 			</div>
 			<div class="col-md-3 nothing">
 			</div>

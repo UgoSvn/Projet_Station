@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    session="true"
+    import="fr.esigelec.jee.*"
+%>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -120,32 +126,43 @@
 			<div class="col-md-3 check d-flex align-items-center">
 				<p>
 					Type de station-service :<br />
-					<input type="checkbox" name="colors" value="Station-service autoroute" />  Station-service autoroute<br />
-					<input type="checkbox" name="colors" value="Station-service route" />  Station-service route<br />
-					<input type="checkbox" name="colors" value="Autres stations-service" />  Autres stations-service<br />
+					<input type="checkbox" name="c1l1" value="Station-service autoroute" checked />  Station-service autoroute<br />
+					<input type="checkbox" name="c1l2" value="Station-service route" />  Station-service route<br />
+					<input type="checkbox" name="c1l3" value="Autres stations-service" />  Autres stations-service<br />
+					<%
+						String check1 = (String)request.getParameter("c1l1");
+						String[] check2 = request.getParameterValues("c1l2");
+						String[] check3= request.getParameterValues("c1l1");
+						if (check1 == null) {
+						    System.out.println (" Non CochÃ©e ");
+						} else { 
+						     
+						    System.out.println (" Cochee ");
+						}
+					%>
 				</p>
 			</div>
 			<div class="col-md-3 check d-flex align-items-center">
 				<p>
 					<bold>Produits :</bold><br />
-					<input type="checkbox" name="colors" value="Gazole" />  Gazole<br />
-					<input type="checkbox" name="colors" value="SP 95" />  SP 95<br />
-					<input type="checkbox" name="colors" value="SP 98" />  SP 98<br />
-					<input type="checkbox" name="colors" value="GPLc" />  GPLc<br />
-					<input type="checkbox" name="colors" value="E10" />  E10<br />
-					<input type="checkbox" name="colors" value="E85" />  E85<br />
+					<input type="checkbox" name="c2l1" value="Gazole" />  Gazole<br />
+					<input type="checkbox" name="c2l2" value="SP 95" />  SP 95<br />
+					<input type="checkbox" name="c2l3" value="SP 98" />  SP 98<br />
+					<input type="checkbox" name="c2l4" value="GPLc" />  GPLc<br />
+					<input type="checkbox" name="c2l5" value="E10" />  E10<br />
+					<input type="checkbox" name="c2l6" value="E85" />  E85<br />
 				</p>
 			</div>
 			<div class="col-md-3 check d-flex align-items-center">
 				<p>
 					Services :<br />
-					<input type="checkbox" name="colors" value="Restauration à emporter" />  Restauration à emporter<br />
-					<input type="checkbox" name="colors" value="Toilettes publiques" />  Toilettes publiques<br />
-					<input type="checkbox" name="colors" value="Bar" />  Bar<br />
-					<input type="checkbox" name="colors" value="Boutique alimentaire" />  Boutique alimentaire<br />
-					<input type="checkbox" name="colors" value="Station de gonflage" />  Station de gonflage<br />
-					<input type="checkbox" name="colors" value="DAB(Distributeur Automatique de Billet)" />  DAB(Distributeur Automatique de Billet)<br />
-					<input type="checkbox" name="colors" value="Lavage automatique" />  Lavage automatique<br />
+					<input type="checkbox" name="c3l1" value="Restauration Ã  emporter" />  Restauration Ã  emporter<br />
+					<input type="checkbox" name="c3l2" value="Toilettes publiques" />  Toilettes publiques<br />
+					<input type="checkbox" name="c3l3" value="Bar" />  Bar<br />
+					<input type="checkbox" name="c3l4" value="Boutique alimentaire" />  Boutique alimentaire<br />
+					<input type="checkbox" name="c3l5" value="Station de gonflage" />  Station de gonflage<br />
+					<input type="checkbox" name="c3l6" value="DAB(Distributeur Automatique de Billet)" />  DAB(Distributeur Automatique de Billet)<br />
+					<input type="checkbox" name="c3l7" value="Lavage automatique" />  Lavage automatique<br />
 				</p>
 			</div>
 			<div class="col-md-1 check d-flex align-items-center">
