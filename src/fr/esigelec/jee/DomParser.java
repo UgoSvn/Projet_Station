@@ -110,10 +110,11 @@ public class DomParser {
 		
 	}
 	
-	public String stationLaNEmePlusProche(double latitude1, double longitude1, int n){
+	public ArrayList<String> stationLaNEmePlusProche(double latitude1, double longitude1, int n, String km){
 		ArrayList<Double> ListeDouble = new ArrayList<Double>();
 		ArrayList<Double> ListeDouble2 = new ArrayList<Double>();
 		ArrayList<String> ListId = new ArrayList<String>();
+		ArrayList<String> ListId2 = new ArrayList<String>();
 		DistanceCalculator A = new DistanceCalculator();
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
@@ -131,9 +132,12 @@ public class DomParser {
 					double latitude2 = stringToDoubleLatitude(latitude);
 					double longitude2 = stringToDoubleLongitude(longitude);
 					double d = A.distance(latitude1, longitude1, latitude2, longitude2);
-					ListeDouble.add(d);
-					ListeDouble2.add(d);
-					ListId.add(id);
+					if(Double.valueOf(km)>d) {
+						ListeDouble.add(d);
+						ListeDouble2.add(d);
+						ListId.add(id);
+					}
+					
 					
 					}
 				}
@@ -148,10 +152,23 @@ public class DomParser {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Collections.sort(ListeDouble);
-		double d2 = ListeDouble.get(n-1);
-		int index = ListeDouble2.indexOf(d2);
-		return ListId.get(index);
+		if(ListeDouble.size()>0) {
+			Collections.sort(ListeDouble);
+			if(ListId.size()<n) {
+				n=ListId.size();
+			}
+			for(int i=0; i<n; i++) {
+				double d2 = ListeDouble.get(i);
+				int index = ListeDouble2.indexOf(d2);
+				ListId2.add(ListId.get(index));
+				ListId2.add(String.valueOf(d2));
+			}
+			return ListId2;
+		}
+		else {
+			return null;
+		}
+		
 		
 		
 	}
@@ -199,7 +216,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -255,7 +272,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -306,7 +323,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -356,7 +373,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -422,7 +439,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
@@ -465,7 +482,7 @@ public class DomParser {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			try {
 				DocumentBuilder builder = factory.newDocumentBuilder();
-				Document doc = builder.parse("C:\\JavaJee\\Stations.xml");
+				Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
 				NodeList pdvList = doc.getElementsByTagName("pdv");
 				for(int i=0;i<pdvList.getLength();i++) {
 					Node p = pdvList.item(i);
@@ -632,13 +649,13 @@ public class DomParser {
 		DomParser A = new DomParser();
 //		System.out.println(A.stringToDoubleLatitude("4620114"));
 //		System.out.println(A.stringToDoubleLongitude("462011145"));
-		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
-//		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256, 5));
+//		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
+		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256,10, "20"));
 //		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 1));
 //		System.out.println(A.stationCpTypeAdrVil("1000001"));
 //		System.out.println(A.stationServices("1000001"));
 //		System.out.println(A.stationPrix("1000001"));
-//		System.out.println(A.stationHorairesDuJour("1000004"));
+//		System.out.println(A.stationHora	iresDuJour("1000004"));
 //		System.out.println(A.stationKm(49.5517696, 0.9568256, "76800005"));
 //		if(A.stationServices("2280001").contains("DAB (Distributeur automatique de billets)")) {
 //			System.out.println("oui");
