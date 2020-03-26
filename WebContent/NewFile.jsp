@@ -18,12 +18,6 @@
 
 	</form>
 
-	<a href="List.jsp?geoLocation=titi"></a>
-
-
-<button id = "find-me">Show my location</button><br/>
-<p id = "status"></p>
-<a id = "map-link" target="_blank"></a>
 	<script>
 		var x = document.getElementById("demo");
 
@@ -40,15 +34,5 @@
 			document.getElementById("lat").value = position.coords.latitude;
 		}
 	</script>
-	
-            
-	<!--  <script>
-function showPosition(position) {
-	  x.innerHTML = "Latitude: " + position.coords.latitude + 
-	  "<br>Longitude: " + position.coords.longitude;
-	}</script>
--->
-
-
 </body>
 </html>
