@@ -48,6 +48,22 @@ public class DomParser {
 		return Double.valueOf(string2);
 	}
 	
+	public String conversionPrix(String valeur) {
+		String valeurconvert = "";
+		for(int i=0; i<4; i++) {
+			if(i==0) {
+				String s = String.valueOf(valeur.charAt(i));
+				valeurconvert = valeurconvert.concat(s);
+				valeurconvert = valeurconvert.concat(".");
+			}
+			else {
+				String s = String.valueOf(valeur.charAt(i));
+				valeurconvert = valeurconvert.concat(s);
+			}
+		}
+		return valeurconvert;
+	}
+	
 	public String stationsLaPlusProche(double latitude1, double longitude1){
 		ArrayList<Double> ListeDouble = new ArrayList<Double>();
 		ArrayList<Double> ListeDouble2 = new ArrayList<Double>();
@@ -178,7 +194,7 @@ public class DomParser {
 		
 	}
 	
-	public ArrayList<String> stationCpAdrVil(String id){
+	public ArrayList<String> stationCpTypeAdrVil(String id){
 		ArrayList<String> ListeInformations = new ArrayList<String>();	
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
@@ -192,6 +208,14 @@ public class DomParser {
 					String id2 = pdv.getAttribute("id");
 					if(id2.equals(id)) {
 						String cp = pdv.getAttribute("cp");
+						String type = pdv.getAttribute("pop");
+						ListeInformations.add(cp);
+						if(type.equals("A")) {
+							ListeInformations.add("Station service d'autoroute");
+						}
+						else {
+							ListeInformations.add("Station service de route");
+						}
 						ListeInformations.add(cp);
 						NodeList infosList = pdv.getChildNodes();
 						for(int j=0;j<infosList.getLength();j++) {
@@ -277,6 +301,7 @@ public class DomParser {
 	}
 	
 	public ArrayList<String> stationPrix(String id){
+		
 		ArrayList<String> ListePrix = new ArrayList<String>();	
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
@@ -300,11 +325,11 @@ public class DomParser {
 								if(ListePrix.contains(nom)) {
 									int index = ListePrix.indexOf(nom);
 									ListePrix.remove(index + 1);
-									ListePrix.add(index + 1, valeur);
+									ListePrix.add(index + 1, conversionPrix(valeur));
 								}
 								else {
 									ListePrix.add(nom);
-									ListePrix.add(valeur);
+									ListePrix.add(conversionPrix(valeur));
 								}
 									}	
 
@@ -391,7 +416,9 @@ public class DomParser {
 		
 	}
 	
-/*	public ArrayList<String> stationsFiltres(String distance; String ){
+	
+	
+	public ArrayList<String> stationsFiltres(String distance, int Gazole, int SP95, int SP ){
 		ArrayList<String> ListePrix = new ArrayList<String>();	
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
@@ -441,7 +468,7 @@ public class DomParser {
 		}
 		return ListePrix;
 		
-	}*/
+	}
 
 	public static void main(String[] args) {
 /*		// TODO Auto-generated method stub
@@ -476,10 +503,10 @@ public class DomParser {
 //		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
 //		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256, 5));
 //		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 8));
-//		System.out.println(A.stationCpAdrVil("1000001"));
+//		System.out.println(A.stationCpTypeAdrVil("1000001"));
 //		System.out.println(A.stationServices("1000001"));
 //		System.out.println(A.stationPrix("1000001"));
-		System.out.println(A.stationHorairesDuJour("1000001"));
+		System.out.println(A.stationHorairesDuJour("1000004"));
 		
 		
 		
