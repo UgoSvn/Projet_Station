@@ -555,7 +555,7 @@ public class DomParser {
 						}
 					}
 					if(i>-1&&i<ListId.size()&&resto==1) {
-						if(!(stationServices(ListId.get(i)).contains("Restauration à emporter"))) {
+						if(!(stationServices(ListId.get(i)).contains("Restauration ï¿½ emporter"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
@@ -632,7 +632,7 @@ public class DomParser {
 			}
 			Collections.sort(ListeDouble);
 			if(ListeDouble.size()==0) {
-				return "Aucun résultat";
+				return "Aucun rï¿½sultat";
 			}
 			else {
 				double d2 = ListeDouble.get(n-1);
@@ -655,7 +655,12 @@ public class DomParser {
 //		System.out.println(A.stationCpTypeAdrVil("1000001"));
 //		System.out.println(A.stationServices("1000001"));
 //		System.out.println(A.stationPrix("1000001"));
-//		System.out.println(A.stationHora	iresDuJour("1000004"));
+//		String id = "1000004";
+//		System.out.println(A.stationHorairesDuJour("1000004"));
+//		for(int i=0; i<A.stationServices(id).size(); i++) {
+//			System.out.println(A.stationServices(id).get(i));
+//		}
+//		System.out.println(A.stationHorairesDuJour("1000004"));
 //		System.out.println(A.stationKm(49.5517696, 0.9568256, "76800005"));
 //		if(A.stationServices("2280001").contains("DAB (Distributeur automatique de billets)")) {
 //			System.out.println("oui");
