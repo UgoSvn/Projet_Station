@@ -649,7 +649,7 @@ public class DomParser {
 						System.out.println("lkm "+ListKm2);
 						if(ListIdBis.size()==n) {
 							System.out.println("fin");
-							for(int j=0;j<10;j++) {
+							for(int j=0;j<n;j++) {
 								ListId2.add(ListIdBis.get(i));
 								ListId2.add(String.valueOf(ListKm2.get(i)));
 							}
