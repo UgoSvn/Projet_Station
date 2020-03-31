@@ -471,9 +471,14 @@ public class DomParser {
 		
 	}
 	
-	public String stationsFiltresNEmePlusProche(int n, String distance, String type, int Gazole, int SP95, int SP98, int GPLc, int E10, int E85, int resto, int toil, int bar, int bout, int stat, int dab, int lav, double latitude, double longitude){
+	public ArrayList<String> stationsFiltresNEmePlusProche(int n, String distance, String type, int Gazole, int SP95, int SP98, int GPLc, int E10, int E85, int resto, int toil, int bar, int bout, int stat, int dab, int lav, double latitude, double longitude){
 			ArrayList<Double> ListKm = new ArrayList<Double>();
+			ArrayList<Double> ListKm2 = new ArrayList<Double>();
 			ArrayList<String> ListId = new ArrayList<String>();
+			ArrayList<String> ListIdBis = new ArrayList<String>();
+			ArrayList<String> ListId2 = new ArrayList<String>();
+			ArrayList<String> ListServices = new ArrayList<String>();
+			ArrayList<String> ListPrix = new ArrayList<String>();
 			DistanceCalculator A = new DistanceCalculator();
 			ArrayList<Double> ListeDouble = new ArrayList<Double>();
 			ArrayList<Double> ListeDouble2 = new ArrayList<Double>();
@@ -495,130 +500,177 @@ public class DomParser {
 							double latitude2 = stringToDoubleLatitude(latitude1);
 							double longitude2 = stringToDoubleLongitude(longitude1);
 							d = A.distance(latitude, longitude, latitude2, longitude2);
-							ListKm.add(d);
-						    ListId.add(id);
-						}    
+							if(d<=Double.valueOf(distance)) {
+								ListKm.add(d);
+								ListKm2.add(d);
+								ListIdBis.add(id);
+							}
+							
+						}
+						
 						
 					}
 				}
-				for(int i=0; i<ListId.size(); i ++) {
+				Collections.sort(ListKm);
+				for(int i=0; i<ListIdBis.size();i++) {
+					double d2 = ListKm.get(i);
+					int index = ListKm2.indexOf(d2);
+					ListId.add(ListIdBis.get(index));
+					
+				}
+				ListIdBis.clear();
+				ListKm2.clear();
+				
+				
+
+/*				for(int i=0; i<ListId.size(); i ++) {
 					if(i>-1&&ListKm.get(i)>Double.valueOf(distance)) {
 						ListId.remove(i);
 						ListKm.remove(i);
 						i--;
 					}
 				}
-				for(int i =0; i<ListId.size(); i ++) {
-					int k=0;
+				*/
+				
+				if(ListId.size()!=0) {
 					
-					if(i>-1&&i<ListId.size()&&Gazole==1) {
-						if(!(stationPrix(ListId.get(i)).contains("Gazole"))) {
+				for(int i =0; i<ListId.size(); i ++) {
+					System.out.println("e="+i);
+					System.out.println("l: "+ListId.size());
+					int k=0;
+					if(i>-1&&i<ListId.size()) {
+						ListPrix = stationPrix(ListId.get(i));
+						System.out.println("f");
+						}
+					if(i>-1&&i<ListId.size()&&Gazole==1&&k==0) {
+						if(!(ListPrix.contains("Gazole"))) {
 							
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&SP95==1) {
-						if(!(stationPrix(ListId.get(i)).contains("SP95"))) {
+					if(i>-1&&i<ListId.size()&&SP95==1&&k==0) {
+						if(!(ListPrix.contains("SP95"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&SP98==1) {
-						if(!(stationPrix(ListId.get(i)).contains("SP98"))) {
+					if(i>-1&&i<ListId.size()&&SP98==1&&k==0) {
+						if(!(ListPrix.contains("SP98"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&GPLc==1) {
-						if(!(stationPrix(ListId.get(i)).contains("GPLc"))) {
+					if(i>-1&&i<ListId.size()&&GPLc==1&&k==0) {
+						if(!(ListPrix.contains("GPLc"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&E10==1) {
-						if(!(stationPrix(ListId.get(i)).contains("E10"))) {
+					if(i>-1&&i<ListId.size()&&E10==1&&k==0) {
+						if(!(ListPrix.contains("E10"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&E85==1) {
-						if(!(stationPrix(ListId.get(i)).contains("E85"))) {
+					if(i>-1&&i<ListId.size()&&E85==1&&k==0) {
+						if(!(ListPrix.contains("E85"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&resto==1) {
-						if(!(stationServices(ListId.get(i)).contains("Restauration ï¿½ emporter"))) {
+					if(k==0) {
+						System.out.println("g");
+						ListServices = stationServices(ListId.get(i));
+						System.out.println("i");
+					if(i>-1&&i<ListId.size()&&resto==1&&k==0) {
+						if(!(ListServices.contains("Restauration à emporter"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&toil==1) {
-						if(!(stationServices(ListId.get(i)).contains("Toilettes publiques"))) {
+					if(i>-1&&i<ListId.size()&&toil==1&&k==0) {
+						if(!(ListServices.contains("Toilettes publiques"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&dab==1) {
-						if(!(stationServices(ListId.get(i)).contains("DAB (Distributeur automatique de billets)"))) {
+					if(i>-1&&i<ListId.size()&&dab==1&&k==0) {
+						if(!(ListServices.contains("DAB (Distributeur automatique de billets)"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&bout==1) {
-						if(!(stationServices(ListId.get(i)).contains("Boutique alimentaire"))) {
+					if(i>-1&&i<ListId.size()&&bout==1&&k==0) {
+						if(!(ListServices.contains("Boutique alimentaire"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&bar==1) {
-						if(!(stationServices(ListId.get(i)).contains("Bar"))) {
+					if(i>-1&&i<ListId.size()&&bar==1&&k==0) {
+						if(!(ListServices.contains("Bar"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&stat==1) {
-						if(!(stationServices(ListId.get(i)).contains("Station de gonflage"))) {
+					if(i>-1&&i<ListId.size()&&stat==1&&k==0) {
+						if(!(ListServices.contains("Station de gonflage"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					if(i>-1&&i<ListId.size()&&lav==1) {
-						if(!(stationServices(ListId.get(i)).contains("Lavage automatique"))) {
+					if(i>-1&&i<ListId.size()&&lav==1&&k==0) {
+						if(!(ListServices.contains("Lavage automatique"))) {
 							ListId.remove(i);
 							ListKm.remove(i);
 							k=1;
 						}
 					}
-					while(i>ListId.size()-1) {
-						i--;
-					}
+				}
 					if(k==1) {
 						i--;
 					}
+					else {
+						ListIdBis.add(ListId.get(i));
+						ListKm2.add(ListKm.get(i));
+						System.out.println("lbis"+ListIdBis);
+						System.out.println("lkm "+ListKm2);
+						if(ListIdBis.size()==n) {
+							System.out.println("fin");
+							for(int j=0;j<10;j++) {
+								ListId2.add(ListIdBis.get(i));
+								ListId2.add(String.valueOf(ListKm2.get(i)));
+							}
+							return ListId2;
+						}
+						
+						
 				}
 				
+		
 				for(int j=0; j<ListId.size();j++) {
-//					double d = stationKm(latitude, longitude, ListId.get(j));
-//					double d = 0;
 					ListeDouble.add(ListKm.get(j));
 					ListeDouble2.add(ListKm.get(j));
 				}
 				
+				}
 				
+				
+				}
+			
+		
 			
 			} catch (ParserConfigurationException e) {
 				// TODO Auto-generated catch block
@@ -632,12 +684,19 @@ public class DomParser {
 			}
 			Collections.sort(ListeDouble);
 			if(ListeDouble.size()==0) {
-				return "Aucun rï¿½sultat";
+				return ListId2;
 			}
 			else {
-				double d2 = ListeDouble.get(n-1);
-				int index = ListeDouble2.indexOf(d2);
-				return ListId.get(index);
+				if(ListId.size()<n) {
+					n=ListId.size();
+				}
+				for(int i=0; i<n; i++) {
+					double d2 = ListeDouble.get(i);
+					int index = ListeDouble2.indexOf(d2);
+					ListId2.add(ListId.get(index));
+					ListId2.add(String.valueOf(d2));
+				}
+				return ListId2;
 			}
 			
 			
@@ -650,10 +709,10 @@ public class DomParser {
 //		System.out.println(A.stringToDoubleLatitude("4620114"));
 //		System.out.println(A.stringToDoubleLongitude("462011145"));
 //		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
-		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256,10, "20"));
+//		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256,10, "20"));
 //		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 1));
 //		System.out.println(A.stationCpTypeAdrVil("1000001"));
-//		System.out.println(A.stationServices("1000001"));
+//		if(A.stationServices("1120003").contains("Restauration à emporter")) {System.out.println("oui");};
 //		System.out.println(A.stationPrix("1000001"));
 //		String id = "1000004";
 //		System.out.println(A.stationHorairesDuJour("1000004"));
@@ -668,8 +727,8 @@ public class DomParser {
 		System.out.println("2");
 //		System.out.println(A.stationCpTypeAdrVil("76770002").get(0));
 //		System.out.println(A.stationServices("2280001"));
-		System.out.println(A.stationsFiltresNEmePlusProche(1, "15", "R", 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 49.5517696, 0.9568256));
-		System.out.println("3");
+		System.out.println(A.stationsFiltresNEmePlusProche(5, "10", "R", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 49.5517696, 0.9568256));
+//		System.out.println("3");
 //		System.out.println(A.stationCpTypeAdrVil(A.stationsLaPlusProche(49.5517696, 0.9568256)).get(0)); 
 		
 
