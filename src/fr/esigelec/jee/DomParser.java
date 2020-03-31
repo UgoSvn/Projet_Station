@@ -1,9 +1,15 @@
 package fr.esigelec.jee;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.zip.ZipInputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,6 +22,39 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class DomParser {
+	String lien = "C:\\Users\\Public\\Documents\\StationsServices.xml";
+	public DomParser() {
+		InputStream input = null;
+        ZipInputStream zis = null;
+		try {
+			FileWriter writer = new FileWriter(lien);  
+            BufferedWriter buffer = new BufferedWriter(writer); 
+			input = new URL("https://donnees.roulez-eco.fr/opendata/instantane").openStream();
+			zis = new ZipInputStream(input);
+			zis.getNextEntry();
+			char data;
+            StringBuilder ligne = new StringBuilder();
+            //Stop when 
+            while (!ligne.toString().equals("</pdv_liste>"))
+            {
+            	data = (char) zis.read();
+                if ((data == '\n') )
+                {
+                	buffer.write(ligne.toString());
+                    ligne = new StringBuilder();
+                }
+                else
+                {
+                    ligne.append(data);
+                }
+            }
+            buffer.write(ligne.toString());
+			buffer.close(); 
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
 	
 	public double stringToDoubleLatitude(String string) {
 		String string2="";
@@ -72,7 +111,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+			Document doc = builder.parse(lien);
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
@@ -119,7 +158,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+			Document doc = builder.parse(lien);
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
@@ -179,7 +218,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+			Document doc = builder.parse(lien);
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
@@ -216,7 +255,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+			Document doc = builder.parse(lien);
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -272,7 +311,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+			Document doc = builder.parse(lien);
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -323,7 +362,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+			Document doc = builder.parse(lien);
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -373,7 +412,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+			Document doc = builder.parse(lien);
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p1 = pdvList.item(i);
@@ -439,7 +478,7 @@ public class DomParser {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+			Document doc = builder.parse(lien);
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
@@ -487,7 +526,7 @@ public class DomParser {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			try {
 				DocumentBuilder builder = factory.newDocumentBuilder();
-				Document doc = builder.parse("C:\\Users\\ugose\\eclipse-workspace\\Projet_Station\\Stations.xml");
+				Document doc = builder.parse(lien);
 				NodeList pdvList = doc.getElementsByTagName("pdv");
 				for(int i=0;i<pdvList.getLength();i++) {
 					Node p = pdvList.item(i);
@@ -535,12 +574,9 @@ public class DomParser {
 				if(ListId.size()!=0) {
 					
 				for(int i =0; i<ListId.size(); i ++) {
-					System.out.println("e="+i);
-					System.out.println("l: "+ListId.size());
 					int k=0;
 					if(i>-1&&i<ListId.size()) {
 						ListPrix = stationPrix(ListId.get(i));
-						System.out.println("f");
 						}
 					if(i>-1&&i<ListId.size()&&Gazole==1&&k==0) {
 						if(!(ListPrix.contains("Gazole"))) {
@@ -586,9 +622,7 @@ public class DomParser {
 						}
 					}
 					if(k==0) {
-						System.out.println("g");
 						ListServices = stationServices(ListId.get(i));
-						System.out.println("i");
 					if(i>-1&&i<ListId.size()&&resto==1&&k==0) {
 						if(!(ListServices.contains("Restauration à emporter"))) {
 							ListId.remove(i);
@@ -645,10 +679,7 @@ public class DomParser {
 					else {
 						ListIdBis.add(ListId.get(i));
 						ListKm2.add(ListKm.get(i));
-						System.out.println("lbis"+ListIdBis);
-						System.out.println("lkm "+ListKm2);
 						if(ListIdBis.size()==n) {
-							System.out.println("fin");
 							for(int j=0;j<n;j++) {
 								ListId2.add(ListIdBis.get(i));
 								ListId2.add(String.valueOf(ListKm2.get(i)));
@@ -708,7 +739,7 @@ public class DomParser {
 		DomParser A = new DomParser();
 //		System.out.println(A.stringToDoubleLatitude("4620114"));
 //		System.out.println(A.stringToDoubleLongitude("462011145"));
-//		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
+		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
 //		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256,10, "20"));
 //		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 1));
 //		System.out.println(A.stationCpTypeAdrVil("1000001"));
@@ -719,20 +750,54 @@ public class DomParser {
 //		for(int i=0; i<A.stationServices(id).size(); i++) {
 //			System.out.println(A.stationServices(id).get(i));
 //		}
-//		System.out.println(A.stationHorairesDuJour("1000004"));
+		System.out.println(A.stationHorairesDuJour("1000004"));
 //		System.out.println(A.stationKm(49.5517696, 0.9568256, "76800005"));
 //		if(A.stationServices("2280001").contains("DAB (Distributeur automatique de billets)")) {
 //			System.out.println("oui");
 //		}
-		System.out.println("2");
+//		System.out.println("2");
 //		System.out.println(A.stationCpTypeAdrVil("76770002").get(0));
 //		System.out.println(A.stationServices("2280001"));
-		System.out.println(A.stationsFiltresNEmePlusProche(5, "10", "R", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 49.5517696, 0.9568256));
+		System.out.println(A.stationsFiltresNEmePlusProche(25, "200", "R", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 49.5517696, 0.9568256));
 //		System.out.println("5");
 //		System.out.println(A.stationCpTypeAdrVil(A.stationsLaPlusProche(49.5517696, 0.9568256)).get(0)); 
-		
+/*		try {
+			System.out.println(DomParser.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+*/		
+/*		InputStream input = null;
+        ZipInputStream zis = null;
+		try {
+			input = new URL("https://donnees.roulez-eco.fr/opendata/jour").openStream();
+			zis = new ZipInputStream(input);
+			zis.getNextEntry();
+			char data;
+            StringBuilder ligne = new StringBuilder();
+            //Stop when 
+            while (!ligne.toString().equals("</pdv_liste>"))
+            {
+            	data = (char) zis.read();
+                if ((data == '\n') )
+                {
+                    System.out.println(ligne.toString());
+                    ligne = new StringBuilder();
+                }
+                else
+                {
+                    ligne.append(data);
+                }
+            }
+            System.out.println(ligne.toString());
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
-	}
+	*/}
 
 }
  
