@@ -728,7 +728,7 @@ public class DomParser {
 //		System.out.println(A.stationCpTypeAdrVil("76770002").get(0));
 //		System.out.println(A.stationServices("2280001"));
 		System.out.println(A.stationsFiltresNEmePlusProche(5, "10", "R", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 49.5517696, 0.9568256));
-//		System.out.println("3");
+//		System.out.println("5");
 //		System.out.println(A.stationCpTypeAdrVil(A.stationsLaPlusProche(49.5517696, 0.9568256)).get(0)); 
 		
 
