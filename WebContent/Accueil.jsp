@@ -154,16 +154,34 @@
 			<!-- Colonne 2 -->
 			<div class="col-12 col-md-6 buttonfind">
 				<br />
-				<center>
-					<a href="List.jsp"><button type="button"
-							class="btn btn-outline-warning">FIND</button></a>
-				</center>
+				<form action="List.jsp" name="form" type="hidden">
+					<center><button class="btn btn-outline-warning" name="test" onclick="document.getElementById('submit').disabled=false; getLocation(); return false; ">avoir les coordonnees GPS</button><center><br /><br />
+					<input class="btn btn-outline-warning" type="submit" id="submit" name="submit" disabled="disabled"/><input type="hidden" name="lat" id="lat" /> <input type="hidden" name="long" id="long" />
+					<p id="demo"></p>
+				</form>
+
+				<script>
+					var x = document.getElementById("demo");
+			
+					function getLocation() {
+						if (navigator.geolocation) {
+							navigator.geolocation.getCurrentPosition(showPosition);
+						} else {
+							x.innerHTML = "Veuillez activer position .";
+						}
+					}
+			
+					function showPosition(position) {
+						document.getElementById("long").value = position.coords.longitude;
+						document.getElementById("lat").value = position.coords.latitude;
+					}
+				</script>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-12 nothing">
-				<br /> <br /> <br /> <br /> <br /> <br />
+				<br /> <br />
 			</div>
 		</div>
 
