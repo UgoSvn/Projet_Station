@@ -83,7 +83,14 @@
 			double longitude = 49.5517696;
 			double latitude = 0.9568256;
 			int n;
+			String paramlat = request.getParameter("lat");
+			String paramlong = request.getParameter("long");
+			//latitude = Double.parseDouble(paramlat);
+			//longitude = Double.parseDouble(paramlong);
+			System.out.println(latitude);
+			System.out.println(longitude);
 			%>
+			
 			<div class="col-md-1 nothing">
 			</div>
 			<div class="col-md-2 station1">
