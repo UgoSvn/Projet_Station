@@ -36,8 +36,9 @@
 		
 		.station{
 			background: rgba(0,128,0,0.5) !important;
+			color: white !important;
 		}
-		
+
 		.buttonretour a button{
 			font-family: 'Teko', sans-serif;
 			font-size: 25px;
