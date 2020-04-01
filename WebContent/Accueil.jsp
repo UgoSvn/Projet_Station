@@ -135,13 +135,7 @@
 			<!-- Colonne 1 -->
 			<div class="col-12 col-md-6 nothing d-flex align-items-center"></div>
 
-<<<<<<< HEAD
-	        <!-- Colonne 2 -->
-	        <div class="col-12 col-md-6 buttonfind">
-	        <br />
-				<center><a href="List.jsp"><button type="button" class="btn btn-outline-warning">FIND</button></a></center>
-	        </div>
-=======
+
 			<!-- Colonne 2 -->
 			<div class="col-12 col-md-6 buttonfind">
 				<br />
@@ -168,16 +162,12 @@
 					}
 				</script>
 			</div>
->>>>>>> master
+
 		</div>
 		
 		<div class="row">
 			<div class="col-md-12 nothing">
-<<<<<<< HEAD
-				<br /><br /><br /><br /><br /><br />
-=======
 				<br /> <br />
->>>>>>> master
 			</div>
 		</div>
 		

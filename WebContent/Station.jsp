@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"
     session="true"
     import="fr.esigelec.jee.*"
+    import="java.util.ArrayList"
 %>
 
 <!DOCTYPE html>
@@ -77,33 +78,50 @@
 			<div class="col-md-6 station">
 				<%DomParser a = new DomParser();%>
 				<%
-				double latitude = 49.5517696;
-				double longitude = 0.9568256;
-				int n;
-				n=3;
-				String id;
-				id = a.stationLaNEmePlusProche(latitude, longitude, n);
+				double longitude = 0;
+				double latitude = 0;
+				String paramlat = request.getParameter("lat");
+				String paramlong = request.getParameter("long");
+				longitude = Double.parseDouble(paramlat);
+				latitude = Double.parseDouble(paramlong);
+				
+				String n_param = request.getParameter("n");
+				int n = Integer.parseInt(n_param);
+				String id = request.getParameter("id");
+				ArrayList<String> listServ =new ArrayList<String>();
+				ArrayList<String> listHoraire =new ArrayList<String>();
+				ArrayList<String> listAdr =new ArrayList<String>();
+				listAdr = a.stationCpTypeAdrVil(id);
+				listServ = a.stationServices(id);
+				listHoraire = a.stationHorairesDuJour(id);
+				
+ 				//id = a.stationKmLaNEmePlusProche(longitude,latitude,n);
+				//id ="76770002";
 				%>
 				
-				<h1>Station 1 situé à <%=a.stationKmLaNEmePlusProche(latitude,longitude,n) %> km</h1>
+				<h1>Station <%=n%> situé à <%=a.stationKm(latitude,longitude,id) %> km</h1>
 
-				<p>Adresse : <%=a.stationCpTypeAdrVil(id).get(2)%></p>
+				<p>Adresse : <%=listAdr.get(3)%>  <%=listAdr.get(2)%>  <%=listAdr.get(4)%></p>
 				
-				<p> Horaire : <%
-					for(int i = 0; i < a.stationHorairesDuJour(id).size(); i++){
-						a.stationHorairesDuJour(id).get(i);
-					}
+				<p> Horaire : <br /><%
+					for(int i = 0; i < a.stationHorairesDuJour(id).size(); i++){%>
+						<%=listHoraire.get(i)%><br />
+					<%}
 				%></p>
-				<p> Services : <%
-					for(int i = 0; i < a.stationServices(id).size(); i++){
-						a.stationServices(id).get(i);
-					}
+				
+				<p> Services :<br /> <%
+					for(int i = 0; i < a.stationServices(id).size(); i++){%>
+						<%=listServ.get(i)%><br />
+					<%}
 				%></p>
-				<p> Prix : <%
-					for(int i = 0; i < a.stationPrix(id).size(); i++){
-						a.stationPrix(id).get(i);
-					}
+				<p> Prix : <br /><%
+					for(int i = 0; i < a.stationPrix(id).size(); i++){%>
+						<%=a.stationPrix(id).get(i)%><br />
+					<%}
 				%></p>
+				
+				<p>Type : <%=listAdr.get(1)%><br />
+				</p>
 					
 				<br />
 			</div>
@@ -120,7 +138,7 @@
 		
 		<div class="row">
 	        <div class="col-md-12 buttonretour">
-				<center><a href="List.jsp"><button type="button" class="btn btn-outline-warning">RETOUR</button></center></a>
+				<center><a href="Accueil.jsp"><button type="button" class="btn btn-outline-warning">RETOUR</button></center></a>
 	        </div>
 		</div>
 
