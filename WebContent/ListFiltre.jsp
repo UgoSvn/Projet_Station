@@ -30,18 +30,177 @@
 	<!-- Style sheet CSS -->
 	<link rel="stylesheet" type="text/css" href="css/list.css" />
 	<%int Gazole=0; %>
-	<%String[] checkboxes = request.getParameterValues("c2l1");
+	<%String[] c2l1 = request.getParameterValues("c2l1");
 					 
-					if (checkboxes == null) {
+					if (c2l1 == null) {
 					    // no checkboxes selected
 					    System.out.println (" Gazole Non Cochée ");// Non cochée 
 					} else { 
-					    for (int i = 0; i < checkboxes.length; ++i) {   
+					    for (int i = 0; i < c2l1.length; ++i) {   
 					        System.out.println ("Gazole Cochee ");// cochée 
 					        Gazole=1;
 					    }
 					} 
 					System.out.println(Gazole);%>
+	<%int SP95=0; %>
+	<%String[] c2l2 = request.getParameterValues("c2l2");
+					 
+					if (c2l2 == null) {
+					    // no checkboxes selected
+					    System.out.println (" SP95 Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c2l2.length; ++i) {   
+					        System.out.println ("SP95 Cochee ");// cochée 
+					        SP95=1;
+					    }
+					} 
+					System.out.println(SP95);%>
+	<%int SP98=0; %>
+	<%String[] c2l3 = request.getParameterValues("c2l3");
+					 
+					if (c2l3 == null) {
+					    // no checkboxes selected
+					    System.out.println (" SP98 Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c2l3.length; ++i) {   
+					        System.out.println ("SP98 Cochee ");// cochée 
+					        SP98=1;
+					    }
+					} 
+					System.out.println(SP98);%>
+	<%int GPLc=0; %>
+	<%String[] c2l4 = request.getParameterValues("c2l4");
+					 
+					if (c2l4 == null) {
+					    // no checkboxes selected
+					    System.out.println (" GPLc Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c2l4.length; ++i) {   
+					        System.out.println ("GPLc Cochee ");// cochée 
+					        GPLc=1;
+					    }
+					} 
+					System.out.println(GPLc);%>
+	<%int E10=0; %>
+	<%String[] c2l5 = request.getParameterValues("c2l5");
+					 
+					if (c2l5 == null) {
+					    // no checkboxes selected
+					    System.out.println (" E10 Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c2l5.length; ++i) {   
+					        System.out.println ("E10 Cochee ");// cochée 
+					        E10=1;
+					    }
+					} 
+					System.out.println(E10);%>
+	<%int E85=0; %>
+	<%String[] c2l6 = request.getParameterValues("c2l6");
+					 
+					if (c2l6 == null) {
+					    // no checkboxes selected
+					    System.out.println (" E85 Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c2l6.length; ++i) {   
+					        System.out.println ("E85 Cochee ");// cochée 
+					        E85=1;
+					    }
+					} 
+					System.out.println(E85);%>
+					
+					
+					
+	<%int resto=0; %>
+	<%String[] c3l1 = request.getParameterValues("c3l1");
+					 
+					if (c3l1 == null) {
+					    // no checkboxes selected
+					    System.out.println (" Resto Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c3l1.length; ++i) {   
+					        System.out.println ("Resto Cochee ");// cochée 
+					        resto=1;
+					    }
+					} 
+					System.out.println(resto);%>
+	<%int toil=0; %>
+	<%String[] c3l2 = request.getParameterValues("c3l2");
+					 
+					if (c3l2 == null) {
+					    // no checkboxes selected
+					    System.out.println (" Toilette Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c3l2.length; ++i) {   
+					        System.out.println ("Toilette Cochee ");// cochée 
+					        toil=1;
+					    }
+					} 
+					System.out.println(toil);%>
+	<%int bar=0; %>
+	<%String[] c3l3 = request.getParameterValues("c3l3");
+					 
+					if (c3l3 == null) {
+					    // no checkboxes selected
+					    System.out.println (" Bar Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c3l3.length; ++i) {   
+					        System.out.println ("Bar Cochee ");// cochée 
+					        bar=1;
+					    }
+					} 
+					System.out.println(bar);%>
+	<%int bout=0; %>
+	<%String[] c3l4 = request.getParameterValues("c3l4");
+					 
+					if (c3l4 == null) {
+					    // no checkboxes selected
+					    System.out.println (" Boutique Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c3l4.length; ++i) {   
+					        System.out.println ("Boutique Cochee ");// cochée 
+					        bout=1;
+					    }
+					} 
+					System.out.println(bout);%>
+	<%int stat=0; %>
+	<%String[] c3l5 = request.getParameterValues("c3l5");
+					 
+					if (c3l5 == null) {
+					    // no checkboxes selected
+					    System.out.println (" Station de gonflage Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c3l5.length; ++i) {   
+					        System.out.println ("Station de gonflage Cochee ");// cochée 
+					        stat=1;
+					    }
+					} 
+					System.out.println(stat);%>
+	<%int dab=0; %>
+	<%String[] c3l6 = request.getParameterValues("c3l6");
+					 
+					if (c3l6 == null) {
+					    // no checkboxes selected
+					    System.out.println (" DAB Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c3l6.length; ++i) {   
+					        System.out.println ("DAB Cochee ");// cochée 
+					        dab=1;
+					    }
+					} 
+					System.out.println(dab);%>
+	<%int lav=0; %>
+	<%String[] c3l7 = request.getParameterValues("c3l7");
+					 
+					if (c3l7 == null) {
+					    // no checkboxes selected
+					    System.out.println (" Lavage Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c3l7.length; ++i) {   
+					        System.out.println ("Lavage Cochee ");// cochée 
+					        lav=1;
+					    }
+					} 
+					System.out.println(lav);%>
 </head>
 
 <body>
