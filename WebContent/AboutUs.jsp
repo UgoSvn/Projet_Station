@@ -58,6 +58,7 @@
 			</div>	
 		</div>
 		
+		<!-- Affichage te -->
 		<div class="row">
 			<div class="col-md-12 titre">
 				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>NOT WORKING YET</h1>
