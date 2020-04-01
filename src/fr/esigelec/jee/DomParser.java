@@ -598,10 +598,6 @@ public class DomParser {
 							
 							if(d<=Double.valueOf(distance)) {
 								d = (double) Math.round(d*100)/100;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 								ListKm.add(d);
 								ListKm2.add(d);
 								ListIdBis.add(id);
