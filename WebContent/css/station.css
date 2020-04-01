@@ -22,7 +22,7 @@
   			text-align: center;
   			font-family: 'Teko', sans-serif;
   			font-weight: bold;
-  			font-size: 100px;
+  			font-size: 1000px;
 		}
 		
 		.soustitre p{
@@ -38,7 +38,19 @@
 			background: rgba(0,128,0,0.5) !important;
 			color: white !important;
 		}
-
+		.station h1{
+			color: white !important;
+			font-family: 'Teko', sans-serif;
+			text-decoration: underline;
+			font-size: 35px;
+		}
+		
+		.station p{
+			color: white !important;
+			font-family: 'Teko', sans-serif;
+			font-size: 20px;
+		}
+		
 		.buttonretour a button{
 			font-family: 'Teko', sans-serif;
 			font-size: 25px;

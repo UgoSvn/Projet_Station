@@ -76,8 +76,8 @@
 			<div class="col-md-3 nothing">
 			</div>
 			<div class="col-md-6 station">
-				<%DomParser a = new DomParser();%>
-				<%
+				<%DomParser a = new DomParser();
+				
 				double longitude = 0;
 				double latitude = 0;
 				String paramlat = request.getParameter("lat");
@@ -94,10 +94,6 @@
 				listAdr = a.stationCpTypeAdrVil(id);
 				listServ = a.stationServices(id);
 				listHoraire = a.stationHorairesDuJour(id);
-				System.out.println(listAdr.size()+"bug");
-				
- 				//id = a.stationKmLaNEmePlusProche(longitude,latitude,n);
-				//id ="76770002";
 				%>
 				
 				<h1>Station <%=n%> situé à <%=a.stationKm(latitude,longitude,id) %> km</h1>
