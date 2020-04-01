@@ -474,6 +474,7 @@ public class DomParser {
 											String id3 = jour.getAttribute("id");
 											if(id3.equals(String.valueOf(Calendar.WEEK_OF_YEAR +1))) {
 												NodeList horaireList = pdv.getElementsByTagName("horaire");
+												if(horairesList.getLength()>0) {
 												Node p5 = horaireList.item(0);
 												if(p5.getNodeType()==Node.ELEMENT_NODE) {
 													Element horaire = (Element) p5;
@@ -483,6 +484,7 @@ public class DomParser {
 													ListeHoraires.add(fermeture);
 													
 												}
+											}
 											}
 										}
 									}
@@ -793,11 +795,11 @@ public class DomParser {
 //		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
 //		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256,10, "20"));
 //		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 1));
-		System.out.println(A.stationCpTypeAdrVil("76100003"));
+		System.out.println(A.stationCpTypeAdrVil("76420004"));
 //		if(A.stationServices("1120003").contains("Restauration à emporter")) {System.out.println("oui");};
-//		System.out.println(A.stationPrix("1000001"));
+		System.out.println(A.stationPrix("76000006"));
 //		String id = "1000004";
-		System.out.println(A.stationHorairesDuJour("76100003"));
+		System.out.println(A.stationHorairesDuJour("76000006"));
 //		for(int i=0; i<A.stationServices(id).size(); i++) {
 //			System.out.println(A.stationServices(id).get(i));
 //		}
