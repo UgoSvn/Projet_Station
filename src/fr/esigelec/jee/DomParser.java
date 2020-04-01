@@ -170,7 +170,7 @@ public class DomParser {
 					if(latitude.length()==7&&longitude.length()==6) {
 					double latitude2 = stringToDoubleLatitude(latitude);
 					double longitude2 = stringToDoubleLongitude(longitude);
-					double d = A.distance(latitude1, longitude1, latitude2, longitude2);
+					double d = (double) Math.round(A.distance(latitude1, longitude1, latitude2, longitude2)*100)/100;
 					if(Double.valueOf(km)>d) {
 						ListeDouble.add(d);
 						ListeDouble2.add(d);
@@ -466,7 +466,13 @@ public class DomParser {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return ListeHoraires;
+		if(ListeHoraires.size()!=0) {
+			return ListeHoraires;
+		}
+		else {
+			ListeHoraires.add("pas d'horaires");
+			return ListeHoraires;
+		}
 		
 	}
 	
@@ -491,7 +497,7 @@ public class DomParser {
 						if(latitude.length()==7&&longitude.length()==6) {
 							double latitude2 = stringToDoubleLatitude(latitude);
 							double longitude2 = stringToDoubleLongitude(longitude);
-							d = A.distance(latitude1, longitude1, latitude2, longitude2);
+							d = (double) Math.round(A.distance(latitude1, longitude1, latitude2, longitude2)*100)/100;
 						}
 					}	
 				}
