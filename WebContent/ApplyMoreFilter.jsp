@@ -30,6 +30,7 @@
 	<link rel="stylesheet" type="text/css" href="css/applymorefilter.css" />
 </head>
 
+<!-- Script qui permet de recuperer les coordonnees GPS de l'utilisateur -->
 <script>
 	var x = document.getElementById("demo");
 			
@@ -49,6 +50,7 @@
 </script>
 				
 <body>
+<!-- Form permettant d'ajouter en URL des infos -->
 <form action="ListFiltre.jsp" name="form" type="hidden">
 	<div class="container-fluid">
 		
@@ -82,6 +84,7 @@
 			</div>	
 		</div>
 		
+		<!-- Affichage du titre -->
 		<div class="row">
 			<div class="col-md-12 titre">
 				<br /><br /><br /><br /><br /><br /><h1>FIND A GAZ STATION</h1>
@@ -99,7 +102,7 @@
 					<!-- Colonne 2 -->
 					<div class="col-md-1 choix1">
 						<center>
-							<select name="km" id="km">
+							<select name="km" id="km"> <!-- Ajout du menu déroulant -->
 							  <option>5</option>
 							  <option>10</option>
 							  <option>25</option>
@@ -117,7 +120,7 @@
 					<!-- Colonne 4 -->
 					<div class="col-md-1 choix2">
 						<center>
-							<select name="nbr">
+							<select name="nbr"> <!-- Ajout du menu déroulant -->
 							  <option>10</option>
 							  <option>25</option>
 							  <option>50</option>
@@ -141,7 +144,7 @@
 			<div class="col-md-2 check d-flex align-items-center">
 				
 			</div>
-			<div class="col-md-3 check d-flex align-items-center">
+			<div class="col-md-3 check d-flex align-items-center"> <!-- Ajout des checboxes -->
 				<p>
 					Type de station-service :<br />
 					<input type="checkbox" name="c1l1" value="Station-service autoroute" />  Station-service autoroute<br />
@@ -149,7 +152,7 @@
 					<input type="checkbox" name="c1l3" value="Autres stations-service" />  Autres stations-service<br />
 				</p>
 			</div>
-			<div class="col-md-3 check d-flex align-items-center">
+			<div class="col-md-3 check d-flex align-items-center"> <!-- Ajout des checboxes -->
 				<p>
 					<bold>Produits :</bold><br />
 					<input type="checkbox" name="c2l1" value="Gazole" />  Gazole<br />
@@ -160,7 +163,7 @@
 					<input type="checkbox" name="c2l6" value="E85" />  E85<br />
 				</p>
 			</div>
-			<div class="col-md-3 check d-flex align-items-center">
+			<div class="col-md-3 check d-flex align-items-center"> <!-- Ajout des checboxes -->
 				<p>
 					Services :<br />
 					<input type="checkbox" name="c3l1" value="Restauration à emporter" />  Restauration à emporter<br />
@@ -180,6 +183,8 @@
 	
 		<div class="row">
 	        <div class="col-md-12 buttonfind">
+	       		<!-- Ajout du bouton pour ajouter les coordonnées GPS de l'utilisateur qui désactive le bouton de validation tant que celui-ci n'est pas utilisé -->
+				<!-- Avec deux champs cachées contenant la longitude et la latitude -->
 				<br />
 					<center><button class="btn btn-outline-warning" name="test" onclick="document.getElementById('submit').disabled=false; getLocation(); return false; ">Avoir les coordonnees GPS</button><center><br /><br />
 					<input class="btn btn-outline-warning" type="submit" id="submit" name="submit" disabled="disabled"/><input type="hidden" name="lat" id="lat" /> <input type="hidden" name="long" id="long" />
@@ -197,15 +202,15 @@
 		<footer class="container-fluid">
 	        <div class="row justify-content-around align-items-center">
 	            <div class="col-12 col-md-4 text-center">
-	                <a href="https://www.facebook.com/Page.ESIGELEC/" target="_blank">
+	                <a href="https://www.facebook.com/Page.ESIGELEC/" target="_blank"> <!-- Lien avec les réseaux sociaux -->
 	                    <i class="fab fa-facebook"></i>
 	                </a>
 	                
-	                <a href="https://www.instagram.com/esigelec_officiel/?hl=fr" target="_blank">
+	                <a href="https://www.instagram.com/esigelec_officiel/?hl=fr" target="_blank"> <!-- Lien avec les réseaux sociaux -->
 	                    <i class="fab fa-instagram"></i>
 	                </a>
 	
-	                <a href="https://www.youtube.com/user/ESIGELECIRSEEM" target="_blank">
+	                <a href="https://www.youtube.com/user/ESIGELECIRSEEM" target="_blank"> <!-- Lien avec les réseaux sociaux -->
 	                    <i class="fab fa-youtube"></i>
 	                </a>
 	            </div>
