@@ -21,6 +21,12 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**
+ * 
+ * @author SEVERIN Ugo et ZOGHEIB Michaël
+ *
+ */
+
 public class DomParser {
 	String lien = "C:\\Users\\Public\\Documents\\StationsServices.xml";
 	public DomParser() {
@@ -56,6 +62,11 @@ public class DomParser {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param string
+	 * @return un double correspondant à la valeur du string en entré
+	 */
 	public double stringToDoubleLatitude(String string) {
 		String string2="";
 		for(int i=0; i<7; i++) {
@@ -71,6 +82,11 @@ public class DomParser {
 		}
 		return Double.valueOf(string2);
 	}
+	/**
+	 * 
+	 * @param string
+	 * @return un double correspondant à la valeur du string en entré
+	 */
 	public double stringToDoubleLongitude(String string) {
 		String string2="";
 		for(int i=0; i<6; i++) {
@@ -86,7 +102,11 @@ public class DomParser {
 		}
 		return Double.valueOf(string2);
 	}
-	
+	/**
+	 * 
+	 * @param valeur
+	 * @return un String correspondant au prix dans un format utilisable
+	 */
 	public String conversionPrix(String valeur) {
 		String valeurconvert = "";
 		for(int i=0; i<valeur.length(); i++) {
@@ -102,7 +122,12 @@ public class DomParser {
 		}
 		return valeurconvert;
 	}
-	
+	/**
+	 * 
+	 * @param latitude1
+	 * @param longitude1
+	 * @return un String correspondant à l'id de la station service la plus proche
+	 */
 	public String stationsLaPlusProche(double latitude1, double longitude1){
 		ArrayList<Double> ListeDouble = new ArrayList<Double>();
 		ArrayList<Double> ListeDouble2 = new ArrayList<Double>();
@@ -148,7 +173,14 @@ public class DomParser {
 		
 		
 	}
-	
+	/**
+	 * 
+	 * @param latitude1
+	 * @param longitude1
+	 * @param n
+	 * @param km
+	 * @return une ArrayList<String> correspondant aux n stations les plus proches avec la distance les séparant de la position
+	 */
 	public ArrayList<String> stationLaNEmePlusProche(double latitude1, double longitude1, int n, String km){
 		ArrayList<Double> ListeDouble = new ArrayList<Double>();
 		ArrayList<Double> ListeDouble2 = new ArrayList<Double>();
@@ -211,6 +243,13 @@ public class DomParser {
 		
 		
 	}
+	/**
+	 * 
+	 * @param latitude1
+	 * @param longitude1
+	 * @param n
+	 * @return un String correspondant à l'id de la n ème station la plus proche ( cette méthode n'est plus utilisée mais nous a été utile pour des tests)
+	 */
 	public String stationLaNEmePlusProcheAncienne(double latitude1, double longitude1, int n){
 		ArrayList<Double> ListeDouble = new ArrayList<Double>();
 		DistanceCalculator A = new DistanceCalculator();
@@ -249,7 +288,13 @@ public class DomParser {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param latitude1
+	 * @param longitude1
+	 * @param n
+	 * @return un String correspondant au String à la distance de la n eme station la plus proche
+	 */
 	public String stationKmLaNEmePlusProche(double latitude1, double longitude1, int n){
 		ArrayList<Double> ListeDouble = new ArrayList<Double>();
 		DistanceCalculator A = new DistanceCalculator();
@@ -287,7 +332,11 @@ public class DomParser {
 		return String.valueOf(ListeDouble.get(n-1));
 		
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @return une ArrayList<String> correspondant à une liste contenant le code postal, le type, l'adresse et la ville de la station 
+	 */
 	public ArrayList<String> stationCpTypeAdrVil(String id){
 		ArrayList<String> ListeInformations = new ArrayList<String>();	
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -343,7 +392,11 @@ public class DomParser {
 		return ListeInformations;
 		
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @return une ArrayList<String> correspondant à une liste contenant les services d'une station
+	 */
 	public ArrayList<String> stationServices(String id){
 		ArrayList<String> ListeServices = new ArrayList<String>();	
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -393,7 +446,11 @@ public class DomParser {
 		return ListeServices;
 		
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @return une ArrayList<String> correspondant à une liste contenant les carburants et leur prix d'une station
+	 */
 	public ArrayList<String> stationPrix(String id){
 		
 		ArrayList<String> ListePrix = new ArrayList<String>();	
@@ -444,7 +501,11 @@ public class DomParser {
 		return ListePrix;
 		
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @return une ArrayList<String> correspondant à une liste contenant les horaires du jour actuel de la station
+	 */
 	public ArrayList<String> stationHorairesDuJour(String id){
 		ArrayList<String> ListeHoraires = new ArrayList<String>();	
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -524,7 +585,13 @@ public class DomParser {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param latitude1
+	 * @param longitude1
+	 * @param id
+	 * @return un double correspondant à la distance entre  une position et une station service
+	 */
 	public Double stationKm(double latitude1, double longitude1, String id){
 		ArrayList<Double> ListeDouble = new ArrayList<Double>();
 		double d = 1000;
@@ -563,7 +630,29 @@ public class DomParser {
 		return d;
 		
 	}
-	
+	/**
+	 * 
+	 * @param n
+	 * @param distance
+	 * @param type1
+	 * @param type2
+	 * @param Gazole
+	 * @param SP95
+	 * @param SP98
+	 * @param GPLc
+	 * @param E10
+	 * @param E85
+	 * @param resto
+	 * @param toil
+	 * @param bar
+	 * @param bout
+	 * @param stat
+	 * @param dab
+	 * @param lav
+	 * @param latitude
+	 * @param longitude
+	 * @return une ArrayList<String> au n stations services les plus proches correspondantes aux filtres établis 
+	 */
 	public ArrayList<String> stationsFiltresNEmePlusProche(int n, String distance, int type1, int type2, int Gazole, int SP95, int SP98, int GPLc, int E10, int E85, int resto, int toil, int bar, int bout, int stat, int dab, int lav, double latitude, double longitude){
 			ArrayList<Double> ListKm = new ArrayList<Double>();
 			ArrayList<Double> ListKm2 = new ArrayList<Double>();
@@ -598,6 +687,7 @@ public class DomParser {
 							
 							if(d<=Double.valueOf(distance)) {
 								d = (double) Math.round(d*100)/100;
+
 								ListKm.add(d);
 								ListKm2.add(d);
 								ListIdBis.add(id);
@@ -618,16 +708,6 @@ public class DomParser {
 				ListIdBis.clear();
 				ListKm2.clear();
 				
-				
-
-/*				for(int i=0; i<ListId.size(); i ++) {
-					if(i>-1&&ListKm.get(i)>Double.valueOf(distance)) {
-						ListId.remove(i);
-						ListKm.remove(i);
-						i--;
-					}
-				}
-				*/
 				
 				if(ListId.size()!=0) {
 					
@@ -756,7 +836,6 @@ public class DomParser {
 						ListKm2.add(ListKm.get(i));
 						if(ListIdBis.size()==n) {
 							for(int j=0;j<n;j++) {
-								System.out.println("l"+ListIdBis);
 								ListId2.add(ListIdBis.get(j));
 								ListId2.add(String.valueOf(ListKm2.get(j)));
 							}
@@ -795,9 +874,7 @@ public class DomParser {
 				if(ListId.size()<n) {
 					n=ListId.size();
 				}
-				System.out.println(ListeDouble);
 				for(int i=0; i<n; i++) {
-					System.out.println("fin2");
 					double d2 = ListeDouble.get(i);
 					int index = ListeDouble2.indexOf(d2);
 					ListId2.add(ListId.get(index));
@@ -810,72 +887,6 @@ public class DomParser {
 			
 		}
 
-	public static void main(String[] args) {
-
-		DomParser A = new DomParser();
-		System.out.println("1");
-//		System.out.println(A.stringToDoubleLatitude("4620114"));
-//		System.out.println(A.stringToDoubleLongitude("462011145"));
-		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
-//		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256,10, "20"));
-//		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 1));
-		System.out.println(A.stationCpTypeAdrVil("76770002"));
-//		if(A.stationServices("1120003").contains("Restauration à emporter")) {System.out.println("oui");};
-		System.out.println(A.stationPrix("76000006"));
-//		String id = "1000004";
-		System.out.println(A.stationHorairesDuJour("76000006"));
-//		for(int i=0; i<A.stationServices(id).size(); i++) {
-//			System.out.println(A.stationServices(id).get(i));
-//		}
-//		System.out.println(A.stationHorairesDuJour("1000004"));
-//		System.out.println(A.stationKm(49.5517696, 0.9568256, "76800005"));
-//		if(A.stationServices("2280001").contains("DAB (Distributeur automatique de billets)")) {
-//			System.out.println("oui");
-//		}
-//		System.out.println("2");
-//		System.out.println(A.stationCpTypeAdrVil("76770002").get(0));
-//		System.out.println(A.stationServices("2280001"));
-
- //   System.out.println(A.stationsFiltresNEmePlusProche(5, "20", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49.5517696, 0.9568256));
-		System.out.println(A.stationsFiltresNEmePlusProche(10, "10", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49.5517696, 0.9568256));
-//		System.out.println(A.stationCpTypeAdrVil(A.stationsLaPlusProche(49.5517696, 0.9568256)).get(0)); 
-/*		try {
-			System.out.println(DomParser.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-*/		
-/*		InputStream input = null;
-        ZipInputStream zis = null;
-		try {
-			input = new URL("https://donnees.roulez-eco.fr/opendata/jour").openStream();
-			zis = new ZipInputStream(input);
-			zis.getNextEntry();
-			char data;
-            StringBuilder ligne = new StringBuilder();
-            //Stop when 
-            while (!ligne.toString().equals("</pdv_liste>"))
-            {
-            	data = (char) zis.read();
-                if ((data == '\n') )
-                {
-                    System.out.println(ligne.toString());
-                    ligne = new StringBuilder();
-                }
-                else
-                {
-                    ligne.append(data);
-                }
-            }
-            System.out.println(ligne.toString());
-			
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-	*/}
 
 }
  
