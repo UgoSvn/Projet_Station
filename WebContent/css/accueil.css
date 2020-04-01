@@ -71,11 +71,14 @@
 			color: black;
 		}
 		
-		btn-outline-warning {
+		.btn{
+		font-family: 'Teko', sans-serif !important;
+		}
+		.btn-outline-warning {
    			color: #ffc107;
     		border-color: #ffc107;
 			font-size: 25px;
-			font-family: 'Teko', sans-serif;
+			font-family: 'Teko', sans-serif !important;
 		}
 		
 		/* Gestion des parametres du Footer */

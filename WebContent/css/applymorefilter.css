@@ -61,8 +61,11 @@
 			
 		}
 		
+		.btn{
+		font-family: 'Teko', sans-serif !important;
+		}
 		.buttonfind button{
-			font-family: 'Teko', sans-serif;
+			font-family: 'Teko', sans-serif !important;
 			font-size: 25px;
 		}
 		/* Gestion des parametres du Footer */
