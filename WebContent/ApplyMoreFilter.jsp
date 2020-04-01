@@ -57,7 +57,7 @@
 </script>
 				
 <body>
-<form action="List.jsp" name="form" type="hidden">
+<form action="ListFiltre.jsp" name="form" type="hidden">
 	<div class="container-fluid">
 		
 		<div class="row">

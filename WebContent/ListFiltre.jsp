@@ -29,6 +29,37 @@
 	
 	<!-- Style sheet CSS -->
 	<link rel="stylesheet" type="text/css" href="css/list.css" />
+	<%int type1=0; %>
+	<%String[] c1l1 = request.getParameterValues("c1l1");
+					 
+					if (c1l1 == null) {
+					    // no checkboxes selected
+					    System.out.println (" SSA Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c1l1.length; ++i) {   
+					        System.out.println ("SSA Cochee ");// cochée 
+					        type1=1;
+					    }
+					} 
+					System.out.println(type1);%>
+	<%int type2=0; %>
+	<%String[] c1l2 = request.getParameterValues("c1l2");
+					 
+					if (c1l2 == null) {
+					    // no checkboxes selected
+					    System.out.println (" SSR Non Cochée ");// Non cochée 
+					} else { 
+					    for (int i = 0; i < c1l2.length; ++i) {   
+					        System.out.println ("SSR Cochee ");// cochée 
+					        type2=1;
+					    }
+					} 
+					System.out.println(type2);%>
+	<%if(type1 == 1 && type2 == 1){
+		type1=0;
+		type2=0;
+	}%>
+	}
 	<%int Gazole=0; %>
 	<%String[] c2l1 = request.getParameterValues("c2l1");
 					 
@@ -263,8 +294,8 @@
 			int n = Integer.parseInt(param_n);
 			longitude = Double.parseDouble(paramlat);
 			latitude = Double.parseDouble(paramlong);
-			//ArrayList<String> liste = a.stationsFiltresNEmePlusProche(int n, String distance, String type, int Gazole, int SP95, int SP98, int GPLc, int E10, int E85, int resto, int toil, int bar, int bout, int stat, int dab, int lav, double latitude, double longitude){;
-			ArrayList<String> liste = a.stationLaNEmePlusProche(longitude,latitude,n, km);
+			ArrayList<String> liste = a.stationsFiltresNEmePlusProche(n, km, type1, type2, Gazole, SP95, SP98, GPLc, E10, E85, resto, toil, bar, bout, stat, dab, lav, latitude, longitude);
+			//ArrayList<String> liste = a.stationLaNEmePlusProche(longitude,latitude,n, km);
 			%>
 			
 			<div class="col-md-1 nothing">
@@ -276,7 +307,9 @@
 				<h1>Station 1 situé à <%=liste.get(1) %> km</h1>
 				<br />
 				<center><a href="Station.jsp?n=1&amp;id=<%=liste.get(0)%>&amp;lat=<%=latitude%>&amp;long=<%=longitude%>"><button type="button" class="btn btn-outline-warning" id="1">Voir</button></a></center>
-				<%}%>
+				<%}
+				else{%><br /><br /><br /><br /><br /><br /><br /><%}
+				%>
 				
 			</div>
 			<div class="col-md-2 station2">

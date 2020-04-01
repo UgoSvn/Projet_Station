@@ -564,7 +564,7 @@ public class DomParser {
 		
 	}
 	
-	public ArrayList<String> stationsFiltresNEmePlusProche(int n, String distance, int type1, int type2, int type3, int Gazole, int SP95, int SP98, int GPLc, int E10, int E85, int resto, int toil, int bar, int bout, int stat, int dab, int lav, double latitude, double longitude){
+	public ArrayList<String> stationsFiltresNEmePlusProche(int n, String distance, int type1, int type2, int Gazole, int SP95, int SP98, int GPLc, int E10, int E85, int resto, int toil, int bar, int bout, int stat, int dab, int lav, double latitude, double longitude){
 			ArrayList<Double> ListKm = new ArrayList<Double>();
 			ArrayList<Double> ListKm2 = new ArrayList<Double>();
 			ArrayList<String> ListId = new ArrayList<String>();
@@ -831,7 +831,7 @@ public class DomParser {
 //		System.out.println("2");
 //		System.out.println(A.stationCpTypeAdrVil("76770002").get(0));
 //		System.out.println(A.stationServices("2280001"));
-		System.out.println(A.stationsFiltresNEmePlusProche(1, "10", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49.5517696, 0.9568256));
+		//System.out.println(A.stationsFiltresNEmePlusProche(1, "10", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49.5517696, 0.9568256));
 //		System.out.println("5");
 //		System.out.println(A.stationCpTypeAdrVil(A.stationsLaPlusProche(49.5517696, 0.9568256)).get(0)); 
 /*		try {
