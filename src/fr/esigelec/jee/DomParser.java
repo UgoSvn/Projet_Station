@@ -593,8 +593,12 @@ public class DomParser {
 						if(latitude1.length()==7&&longitude1.length()==6) {
 							double latitude2 = stringToDoubleLatitude(latitude1);
 							double longitude2 = stringToDoubleLongitude(longitude1);
+							
 							d = A.distance(latitude, longitude, latitude2, longitude2);
+							
 							if(d<=Double.valueOf(distance)) {
+								d = (double) Math.round(d*100)/100;
+
 								ListKm.add(d);
 								ListKm2.add(d);
 								ListIdBis.add(id);

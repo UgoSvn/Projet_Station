@@ -292,8 +292,8 @@
 			String km = request.getParameter("km");
 			String param_n = request.getParameter("nbr");
 			int n = Integer.parseInt(param_n);
-			longitude = Double.parseDouble(paramlat);
-			latitude = Double.parseDouble(paramlong);
+			latitude = Double.parseDouble(paramlat);
+			longitude = Double.parseDouble(paramlong);
 			ArrayList<String> liste = a.stationsFiltresNEmePlusProche(n, km, type1, type2, Gazole, SP95, SP98, GPLc, E10, E85, resto, toil, bar, bout, stat, dab, lav, latitude, longitude);
 			//ArrayList<String> liste = a.stationLaNEmePlusProche(longitude,latitude,n, km);
 			%>

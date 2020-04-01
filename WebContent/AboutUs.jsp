@@ -58,7 +58,7 @@
 			</div>	
 		</div>
 		
-		<!-- Affichage te -->
+		<!-- Affichage du texte -->
 		<div class="row">
 			<div class="col-md-12 titre">
 				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>NOT WORKING YET</h1>
@@ -75,15 +75,15 @@
 		<footer class="container-fluid">
 	        <div class="row justify-content-around align-items-center">
 	            <div class="col-12 col-md-4 text-center">
-	                <a href="https://www.facebook.com/Page.ESIGELEC/" target="_blank">
+	                <a href="https://www.facebook.com/Page.ESIGELEC/" target="_blank"> <!-- Lien avec les réseaux sociaux -->
 	                    <i class="fab fa-facebook"></i>
 	                </a>
 	                
-	                <a href="https://www.instagram.com/esigelec_officiel/?hl=fr" target="_blank">
+	                <a href="https://www.instagram.com/esigelec_officiel/?hl=fr" target="_blank"> <!-- Lien avec les réseaux sociaux -->
 	                    <i class="fab fa-instagram"></i>
 	                </a>
 	
-	                <a href="https://www.youtube.com/user/ESIGELECIRSEEM" target="_blank">
+	                <a href="https://www.youtube.com/user/ESIGELECIRSEEM" target="_blank"> <!-- Lien avec les réseaux sociaux -->
 	                    <i class="fab fa-youtube"></i>
 	                </a>
 	            </div>

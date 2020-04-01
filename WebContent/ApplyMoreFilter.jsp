@@ -46,14 +46,6 @@
 		document.getElementById("lat").value = position.coords.latitude;
 	}
 	
-	function getChecked(){
-		var checked = document.querySelector('input[type=checkbox]:checked')
-		if(checked){
-			return 1;
-		}else{
-			return 0;
-		}
-	}
 </script>
 				
 <body>
@@ -152,7 +144,7 @@
 			<div class="col-md-3 check d-flex align-items-center">
 				<p>
 					Type de station-service :<br />
-					<input type="checkbox" name="c1l1" value="Station-service autoroute" onclick= "getChecked()" />  Station-service autoroute<br />
+					<input type="checkbox" name="c1l1" value="Station-service autoroute" />  Station-service autoroute<br />
 					<input type="checkbox" name="c1l2" value="Station-service route" />  Station-service route<br />
 					<input type="checkbox" name="c1l3" value="Autres stations-service" />  Autres stations-service<br />
 				</p>

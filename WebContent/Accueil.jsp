@@ -25,6 +25,7 @@
 </head>
 
 <body>
+<!-- Form permettant d'ajouter en URL des infos -->
 <form action="List.jsp" name="form" type="hidden">
 	<div class="container-fluid">
 		
@@ -58,12 +59,14 @@
 			</div>	
 		</div>
 		
+		<!-- Affichage du titre -->
 		<div class="row">
 			<div class="col-md-12 titre">
 				<br /><br /><br /><br /><br /><br /><h1>FIND THE NEAREST / GAZ STATION</h1>
 			</div>
 		</div>
 	
+		<!-- Gestion des Layout -->
 		<div class="row">
 			<div class="col-12 col-md-1 nothing">
 
@@ -80,7 +83,7 @@
 	        <!-- Colonne 2 -->
 	        <div class="col-12 col-md-6 try">
 				<h3><br><br>TRY IT OUT NOW</h3>
-				<center><img src="css/images/arrow.png" alt="Fleche" widht="50"/></center>
+				<center><img src="css/images/arrow.png" alt="Fleche" widht="50"/></center> <!-- Ajout de l'image de fleche -->
 	        </div>
 	        
 		</div>
@@ -104,7 +107,7 @@
 					</div>
 					<!-- Colonne 2.2 -->
 					<div class="col-md-3 choix1 d-flex align-items-center">
-						<center><select name="km" id="km">
+						<center><select name="km" id="km"> <!-- Ajout du menu déroulant -->
 						  <option>5</option>
 						  <option>10</option>
 						  <option>25</option>
@@ -120,7 +123,7 @@
 					</div>
 					<!-- Colonne 2.4 -->
 					<div class="col-md-3 choix2 d-flex align-items-center">
-						<center><select name="nbr">
+						<center><select name="nbr"> <!-- Ajout du menu déroulant -->
 						  <option>10</option>
 						  <option>25</option>
 						  <option>50</option>
@@ -139,11 +142,14 @@
 			<!-- Colonne 2 -->
 			<div class="col-12 col-md-6 buttonfind">
 				<br />
+					<!-- Ajout du bouton pour ajouter les coordonnées GPS de l'utilisateur qui désactive le bouton de validation tant que celui-ci n'est pas utilisé -->
+					<!-- Avec deux champs cachées contenant la longitude et la latitude -->
 					<center><button class="btn btn-outline-warning" name="test" onclick="document.getElementById('submit').disabled=false; getLocation(); return false; ">Avoir les coordonnees GPS</button><center><br /><br />
 					<input class="btn btn-outline-warning" type="submit" id="submit" name="submit" disabled="disabled"/><input type="hidden" name="lat" id="lat" /> <input type="hidden" name="long" id="long" />
 					
 				</form>
 
+				<!-- Script qui permet de recuperer les coordonnees GPS de l'utilisateur -->
 				<script>
 					var x = document.getElementById("demo");
 			
@@ -174,15 +180,15 @@
 		<footer class="container-fluid">
 	        <div class="row justify-content-around align-items-center">
 	            <div class="col-12 col-md-4 text-center">
-	                <a href="https://www.facebook.com/Page.ESIGELEC/" target="_blank">
+	                <a href="https://www.facebook.com/Page.ESIGELEC/" target="_blank"> <!-- Lien avec les réseaux sociaux --> 
 	                    <i class="fab fa-facebook"></i>
 	                </a>
 	                
-	                <a href="https://www.instagram.com/esigelec_officiel/?hl=fr" target="_blank">
+	                <a href="https://www.instagram.com/esigelec_officiel/?hl=fr" target="_blank"> <!-- Lien avec les réseaux sociaux -->
 	                    <i class="fab fa-instagram"></i>
 	                </a>
-	
-	                <a href="https://www.youtube.com/user/ESIGELECIRSEEM" target="_blank">
+	                
+	                <a href="https://www.youtube.com/user/ESIGELECIRSEEM" target="_blank"> <!-- Lien avec les réseaux sociaux -->
 	                    <i class="fab fa-youtube"></i>
 	                </a>
 	            </div>
