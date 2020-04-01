@@ -28,6 +28,8 @@ import org.xml.sax.SAXException;
  */
 
 public class DomParser {
+	
+	//Création d'un fichier xml correspondant au fichier possédant les données sur les stations stocké dans un zip sur le site du gouvernement 
 	String lien = "C:\\Users\\Public\\Documents\\StationsServices.xml";
 	public DomParser() {
 		InputStream input = null;
@@ -40,7 +42,7 @@ public class DomParser {
 			zis.getNextEntry();
 			char data;
             StringBuilder ligne = new StringBuilder();
-            //Stop when 
+            //L'écriture s'arrète quand la ligne est égal à </pdv_liste>
             while (!ligne.toString().equals("</pdv_liste>"))
             {
             	data = (char) zis.read();
@@ -54,6 +56,7 @@ public class DomParser {
                     ligne.append(data);
                 }
             }
+            //on écrit la dernière ligne c'est à dire </pdv_liste>
             buffer.write(ligne.toString());
 			buffer.close(); 
 		} catch (IOException e1) {
@@ -61,11 +64,11 @@ public class DomParser {
 			e1.printStackTrace();
 		}
 	}
-	
+	// tranforme la latitude qui est en string en double avec la longueur demandé
 	/**
 	 * 
 	 * @param string
-	 * @return un double correspondant à la valeur du string en entré
+	 * @return un double correspondant à la valeur du string en entrée
 	 */
 	public double stringToDoubleLatitude(String string) {
 		String string2="";
@@ -82,6 +85,7 @@ public class DomParser {
 		}
 		return Double.valueOf(string2);
 	}
+	// tranforme la longitude qui est en string en double avec la longueur demandé
 	/**
 	 * 
 	 * @param string
@@ -102,6 +106,7 @@ public class DomParser {
 		}
 		return Double.valueOf(string2);
 	}
+	// Permet d'inclure une virgule au prix stocké dans le fichier
 	/**
 	 * 
 	 * @param valeur
@@ -122,6 +127,7 @@ public class DomParser {
 		}
 		return valeurconvert;
 	}
+	// renvoie l'id de la station la plus proche en comparant toutes les distances séparant la position de la station
 	/**
 	 * 
 	 * @param latitude1
@@ -135,12 +141,17 @@ public class DomParser {
 		DistanceCalculator A = new DistanceCalculator();
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
+			//Nous ouvrons tout d'abord le fichier XML et nous le parsons grâce à JDOM Parser
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(lien);
+			//Les balises vont nous permettre de trouver les informations dont nous besoin
+			//Pour trouver ces informations nous devons étudier ce fichier comme une base de données hiérarchique comme du DL1
+			//Nous allons tout d'abord au niveau du pdvlist
 			NodeList pdvList = doc.getElementsByTagName("pdv");
 			for(int i=0;i<pdvList.getLength();i++) {
 				Node p = pdvList.item(i);
 				if(p.getNodeType()==Node.ELEMENT_NODE) {
+			// puis au niveau pdv où nous pouvons trouver la latitude et longitude utilisées pour calculer la distance avec la position grâce à l'objet DistanceCalculator		
 					Element pdv = (Element) p;
 					String latitude = pdv.getAttribute("latitude");
 					String longitude = pdv.getAttribute("longitude");
@@ -173,6 +184,7 @@ public class DomParser {
 		
 		
 	}
+	//Cette méthode stocke toutes les stations dans une liste, trie leur distance et retourne une liste avec les stations les proches dans un rayon de km choisis
 	/**
 	 * 
 	 * @param latitude1
@@ -684,7 +696,7 @@ public class DomParser {
 							double longitude2 = stringToDoubleLongitude(longitude1);
 							
 							d = A.distance(latitude, longitude, latitude2, longitude2);
-							
+			// les stations sont filtrées selon la distance les séparant de la position
 							if(d<=Double.valueOf(distance)) {
 								d = (double) Math.round(d*100)/100;
 
@@ -710,13 +722,15 @@ public class DomParser {
 				
 				
 				if(ListId.size()!=0) {
-					
+		//On parcourt la liste ListId et on supprime les éléments qui ne correspondent pas aux demandes en utilisant des if.			
 				for(int i =0; i<ListId.size(); i ++) {
 					int k=0;
 					if(i>-1&&i<ListId.size()) {
 						ListPrix = stationPrix(ListId.get(i));
 						}
 					if(i>-1&&i<ListId.size()&&Gazole==1&&k==0) {
+		// on vérifie grâce aux méthodes précédentes que la station respecte bien ce qui est demandé
+		// on utilise k pour savoir si un remove a déjà été appliqué, ainsi il faut diminuer la valeur i de 1 et continuer le for. 
 						if(!(ListPrix.contains("Gazole"))) {
 							
 							ListId.remove(i);
@@ -831,6 +845,7 @@ public class DomParser {
 					if(k==1) {
 						i--;
 					}
+					// grâce à cette boucle else on peut gagner du temps si la méthode a déjà trouvé n stations correspondantes aux critères et qui sont les proches
 					else {
 						ListIdBis.add(ListId.get(i));
 						ListKm2.add(ListKm.get(i));
@@ -866,6 +881,7 @@ public class DomParser {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			//si le nombre de stations qui correspondent aux critères est inférieur à n alors on utilise comme vu dans une autre méthode un tri et indexof pour détermnier les stations les proches après filtrage.
 			Collections.sort(ListeDouble);
 			if(ListeDouble.size()==0) {
 				return ListId2;

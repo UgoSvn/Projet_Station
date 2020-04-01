@@ -9,7 +9,7 @@ import java.io.*;
  */
 public class DistanceCalculator
 {
-	
+	//Grâce à un calcul nous pouvons déterminer la distance entre deux positions en partant de leurs coordonnées
 	/**
 	 * 
 	 * @param lat1
