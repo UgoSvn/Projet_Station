@@ -564,7 +564,7 @@ public class DomParser {
 		
 	}
 	
-	public ArrayList<String> stationsFiltresNEmePlusProche(int n, String distance, String type, int Gazole, int SP95, int SP98, int GPLc, int E10, int E85, int resto, int toil, int bar, int bout, int stat, int dab, int lav, double latitude, double longitude){
+	public ArrayList<String> stationsFiltresNEmePlusProche(int n, String distance, int type1, int type2, int type3, int Gazole, int SP95, int SP98, int GPLc, int E10, int E85, int resto, int toil, int bar, int bout, int stat, int dab, int lav, double latitude, double longitude){
 			ArrayList<Double> ListKm = new ArrayList<Double>();
 			ArrayList<Double> ListKm2 = new ArrayList<Double>();
 			ArrayList<String> ListId = new ArrayList<String>();
@@ -572,6 +572,7 @@ public class DomParser {
 			ArrayList<String> ListId2 = new ArrayList<String>();
 			ArrayList<String> ListServices = new ArrayList<String>();
 			ArrayList<String> ListPrix = new ArrayList<String>();
+			ArrayList<String> ListType = new ArrayList<String>();
 			DistanceCalculator A = new DistanceCalculator();
 			ArrayList<Double> ListeDouble = new ArrayList<Double>();
 			ArrayList<Double> ListeDouble2 = new ArrayList<Double>();
@@ -727,6 +728,23 @@ public class DomParser {
 						}
 					}
 				}
+				if(k==0) {
+						ListType = stationCpTypeAdrVil(ListId.get(i));
+						if(i>-1&&i<ListId.size()&&type1==1&&k==0) {
+							if(!(ListType.contains("Station service d'autoroute"))) {
+								ListId.remove(i);
+								ListKm.remove(i);
+								k=1;
+							}
+						}
+						if(i>-1&&i<ListId.size()&&type2==1&&k==0) {
+							if(!(ListType.contains("Station service de route"))) {
+								ListId.remove(i);
+								ListKm.remove(i);
+								k=1;
+							}
+						}	
+				}
 					if(k==1) {
 						i--;
 					}
@@ -794,10 +812,10 @@ public class DomParser {
 		System.out.println("1");
 //		System.out.println(A.stringToDoubleLatitude("4620114"));
 //		System.out.println(A.stringToDoubleLongitude("462011145"));
-//		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
+		System.out.println(A.stationsLaPlusProche(49.5517696, 0.9568256));
 //		System.out.println(A.stationLaNEmePlusProche(49.5517696, 0.9568256,10, "20"));
 //		System.out.println(A.stationKmLaNEmePlusProche(49.5517696, 0.9568256, 1));
-		System.out.println(A.stationCpTypeAdrVil("76420004"));
+		System.out.println(A.stationCpTypeAdrVil("76770002"));
 //		if(A.stationServices("1120003").contains("Restauration à emporter")) {System.out.println("oui");};
 		System.out.println(A.stationPrix("76000006"));
 //		String id = "1000004";
@@ -813,7 +831,7 @@ public class DomParser {
 //		System.out.println("2");
 //		System.out.println(A.stationCpTypeAdrVil("76770002").get(0));
 //		System.out.println(A.stationServices("2280001"));
-//		System.out.println(A.stationsFiltresNEmePlusProche(25, "200", "R", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 49.5517696, 0.9568256));
+		System.out.println(A.stationsFiltresNEmePlusProche(1, "10", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49.5517696, 0.9568256));
 //		System.out.println("5");
 //		System.out.println(A.stationCpTypeAdrVil(A.stationsLaPlusProche(49.5517696, 0.9568256)).get(0)); 
 /*		try {
