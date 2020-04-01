@@ -598,7 +598,10 @@ public class DomParser {
 							
 							if(d<=Double.valueOf(distance)) {
 								d = (double) Math.round(d*100)/100;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 								ListKm.add(d);
 								ListKm2.add(d);
 								ListIdBis.add(id);
@@ -757,8 +760,9 @@ public class DomParser {
 						ListKm2.add(ListKm.get(i));
 						if(ListIdBis.size()==n) {
 							for(int j=0;j<n;j++) {
-								ListId2.add(ListIdBis.get(i));
-								ListId2.add(String.valueOf(ListKm2.get(i)));
+								System.out.println("l"+ListIdBis);
+								ListId2.add(ListIdBis.get(j));
+								ListId2.add(String.valueOf(ListKm2.get(j)));
 							}
 							return ListId2;
 						}
@@ -766,16 +770,14 @@ public class DomParser {
 						
 				}
 				
-		
-				for(int j=0; j<ListId.size();j++) {
+				}
+				}
+				for(int j=0; j<ListKm.size();j++) {
 					ListeDouble.add(ListKm.get(j));
 					ListeDouble2.add(ListKm.get(j));
 				}
 				
-				}
 				
-				
-				}
 			
 		
 			
@@ -797,7 +799,9 @@ public class DomParser {
 				if(ListId.size()<n) {
 					n=ListId.size();
 				}
+				System.out.println(ListeDouble);
 				for(int i=0; i<n; i++) {
+					System.out.println("fin2");
 					double d2 = ListeDouble.get(i);
 					int index = ListeDouble2.indexOf(d2);
 					ListId2.add(ListId.get(index));
@@ -835,8 +839,9 @@ public class DomParser {
 //		System.out.println("2");
 //		System.out.println(A.stationCpTypeAdrVil("76770002").get(0));
 //		System.out.println(A.stationServices("2280001"));
-		//System.out.println(A.stationsFiltresNEmePlusProche(1, "10", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49.5517696, 0.9568256));
-//		System.out.println("5");
+
+ //   System.out.println(A.stationsFiltresNEmePlusProche(5, "20", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49.5517696, 0.9568256));
+		System.out.println(A.stationsFiltresNEmePlusProche(10, "10", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49.5517696, 0.9568256));
 //		System.out.println(A.stationCpTypeAdrVil(A.stationsLaPlusProche(49.5517696, 0.9568256)).get(0)); 
 /*		try {
 			System.out.println(DomParser.class.getProtectionDomain().getCodeSource().getLocation().toURI());
