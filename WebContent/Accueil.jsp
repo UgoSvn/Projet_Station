@@ -139,7 +139,7 @@
 			<!-- Colonne 2 -->
 			<div class="col-12 col-md-6 buttonfind">
 				<br />
-					<center><button class="btn btn-outline-warning" name="test" onclick="document.getElementById('submit').disabled=false; getLocation(); return false; ">avoir les coordonnees GPS</button><center><br /><br />
+					<center><button class="btn btn-outline-warning" name="test" onclick="document.getElementById('submit').disabled=false; getLocation(); return false; ">Avoir les coordonnees GPS</button><center><br /><br />
 					<input class="btn btn-outline-warning" type="submit" id="submit" name="submit" disabled="disabled"/><input type="hidden" name="lat" id="lat" /> <input type="hidden" name="long" id="long" />
 					
 				</form>

@@ -104,7 +104,7 @@
 				
 				<p> Horaire : <br /><%
 					for(int i = 0; i < listHoraire.size(); i++){%>
-						<%=listHoraire.get(i)%><br />
+						<%=listHoraire.get(i)%>h  
 					<%}
 				%></p>
 				
