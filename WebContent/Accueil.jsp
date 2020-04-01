@@ -25,7 +25,7 @@
 </head>
 
 <body>
-
+<form action="List.jsp" name="form" type="hidden">
 	<div class="container-fluid">
 		
 		<div class="row">
@@ -104,9 +104,9 @@
 					</div>
 					<!-- Colonne 2.2 -->
 					<div class="col-md-3 choix1 d-flex align-items-center">
-						<center><select name="select">
+						<center><select name="km" id="km">
 						  <option>5</option>
-						  <option>1	0</option>
+						  <option>10</option>
 						  <option>25</option>
 						  <option>50</option>
 						  <option>100</option>
@@ -120,7 +120,7 @@
 					</div>
 					<!-- Colonne 2.4 -->
 					<div class="col-md-3 choix2 d-flex align-items-center">
-						<center><select name="select">
+						<center><select name="nbr">
 						  <option>10</option>
 						  <option>25</option>
 						  <option>50</option>
@@ -139,10 +139,9 @@
 			<!-- Colonne 2 -->
 			<div class="col-12 col-md-6 buttonfind">
 				<br />
-				<form action="List.jsp" name="form" type="hidden">
 					<center><button class="btn btn-outline-warning" name="test" onclick="document.getElementById('submit').disabled=false; getLocation(); return false; ">avoir les coordonnees GPS</button><center><br /><br />
 					<input class="btn btn-outline-warning" type="submit" id="submit" name="submit" disabled="disabled"/><input type="hidden" name="lat" id="lat" /> <input type="hidden" name="long" id="long" />
-					<p id="demo"></p>
+					
 				</form>
 
 				<script>
@@ -192,7 +191,7 @@
 		
 	</div>
 	
-	
+</form>	
 </body>
 
 </html>

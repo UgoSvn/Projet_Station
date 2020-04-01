@@ -474,7 +474,7 @@ public class DomParser {
 											String id3 = jour.getAttribute("id");
 											if(id3.equals(String.valueOf(Calendar.WEEK_OF_YEAR +1))) {
 												NodeList horaireList = pdv.getElementsByTagName("horaire");
-												if(horairesList.getLength()>0) {
+												if(horaireList.getLength()>0) {
 												Node p5 = horaireList.item(0);
 												if(p5.getNodeType()==Node.ELEMENT_NODE) {
 													Element horaire = (Element) p5;
@@ -484,6 +484,8 @@ public class DomParser {
 													ListeHoraires.add(fermeture);
 													
 												}
+											}else {
+												ListeHoraires.add("Caisses automatiques uniquement");
 											}
 											}
 										}

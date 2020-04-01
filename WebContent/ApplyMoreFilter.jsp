@@ -30,8 +30,34 @@
 	<link rel="stylesheet" type="text/css" href="css/applymorefilter.css" />
 </head>
 
+<script>
+	var x = document.getElementById("demo");
+			
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Veuillez activer position .";
+		}
+	}
+			
+	function showPosition(position) {
+		document.getElementById("long").value = position.coords.longitude;
+		document.getElementById("lat").value = position.coords.latitude;
+	}
+	
+	function getChecked(){
+		var checked = document.querySelector('input[type=checkbox]:checked')
+		if(checked){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+</script>
+				
 <body>
-
+<form action="List.jsp" name="form" type="hidden">
 	<div class="container-fluid">
 		
 		<div class="row">
@@ -81,9 +107,9 @@
 					<!-- Colonne 2 -->
 					<div class="col-md-1 choix1">
 						<center>
-							<select name="select">
+							<select name="km" id="km">
 							  <option>5</option>
-							  <option>1	0</option>
+							  <option>10</option>
 							  <option>25</option>
 							  <option>50</option>
 							  <option>100</option>
@@ -99,7 +125,7 @@
 					<!-- Colonne 4 -->
 					<div class="col-md-1 choix2">
 						<center>
-							<select name="select">
+							<select name="nbr">
 							  <option>10</option>
 							  <option>25</option>
 							  <option>50</option>
@@ -126,20 +152,9 @@
 			<div class="col-md-3 check d-flex align-items-center">
 				<p>
 					Type de station-service :<br />
-					<input type="checkbox" name="c1l1" value="Station-service autoroute" checked />  Station-service autoroute<br />
+					<input type="checkbox" name="c1l1" value="Station-service autoroute" onclick= "getChecked()" />  Station-service autoroute<br />
 					<input type="checkbox" name="c1l2" value="Station-service route" />  Station-service route<br />
 					<input type="checkbox" name="c1l3" value="Autres stations-service" />  Autres stations-service<br />
-					<%
-						String check1 = (String)request.getParameter("c1l1");
-						String[] check2 = request.getParameterValues("c1l2");
-						String[] check3= request.getParameterValues("c1l1");
-						if (check1 == null) {
-						    System.out.println (" Non Cochée ");
-						} else { 
-						     
-						    System.out.println (" Cochee ");
-						}
-					%>
 				</p>
 			</div>
 			<div class="col-md-3 check d-flex align-items-center">
@@ -174,28 +189,9 @@
 		<div class="row">
 	        <div class="col-md-12 buttonfind">
 				<br />
-				<form action="List.jsp" name="form" type="hidden">
 					<center><button class="btn btn-outline-warning" name="test" onclick="document.getElementById('submit').disabled=false; getLocation(); return false; ">avoir les coordonnees GPS</button><center><br /><br />
 					<input class="btn btn-outline-warning" type="submit" id="submit" name="submit" disabled="disabled"/><input type="hidden" name="lat" id="lat" /> <input type="hidden" name="long" id="long" />
 					<p id="demo"></p>
-				</form>
-
-				<script>
-					var x = document.getElementById("demo");
-			
-					function getLocation() {
-						if (navigator.geolocation) {
-							navigator.geolocation.getCurrentPosition(showPosition);
-						} else {
-							x.innerHTML = "Veuillez activer position .";
-						}
-					}
-			
-					function showPosition(position) {
-						document.getElementById("long").value = position.coords.longitude;
-						document.getElementById("lat").value = position.coords.latitude;
-					}
-				</script>
 	        </div>
 		</div>
 		
@@ -226,7 +222,7 @@
 		
 	</div>
 	
-	
+</form>
 </body>
 
 </html>
