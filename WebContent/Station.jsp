@@ -94,6 +94,7 @@
 				listAdr = a.stationCpTypeAdrVil(id);
 				listServ = a.stationServices(id);
 				listHoraire = a.stationHorairesDuJour(id);
+				System.out.println(listAdr.size()+"bug");
 				
  				//id = a.stationKmLaNEmePlusProche(longitude,latitude,n);
 				//id ="76770002";
@@ -101,16 +102,18 @@
 				
 				<h1>Station <%=n%> situé à <%=a.stationKm(latitude,longitude,id) %> km</h1>
 
-				<p>Adresse : <%=listAdr.get(3)%>  <%=listAdr.get(2)%>  <%=listAdr.get(4)%></p>
+				<p>Adresse : <%if(listAdr.size()>3){%>
+				<%=listAdr.get(3)%>  <%=listAdr.get(2)%>  <%=listAdr.get(4)%></p>
+				<%}%>
 				
 				<p> Horaire : <br /><%
-					for(int i = 0; i < a.stationHorairesDuJour(id).size(); i++){%>
+					for(int i = 0; i < listHoraire.size(); i++){%>
 						<%=listHoraire.get(i)%><br />
 					<%}
 				%></p>
 				
 				<p> Services :<br /> <%
-					for(int i = 0; i < a.stationServices(id).size(); i++){%>
+					for(int i = 0; i < listServ.size(); i++){%>
 						<%=listServ.get(i)%><br />
 					<%}
 				%></p>
@@ -120,7 +123,7 @@
 					<%}
 				%></p>
 				
-				<p>Type : <%=listAdr.get(1)%><br />
+				<p>Type : <%if(listAdr.size()>3){%><%=listAdr.get(1)%><br /><%}%>
 				</p>
 					
 				<br />
